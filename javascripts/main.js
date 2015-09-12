@@ -5,6 +5,8 @@ var game = new Phaser.Game(windowW, windowH, Phaser.CANVAS, '', {
 });
 
 
+var scrollSpeed = 150;
+
 preload();
 
 function create() {
@@ -31,9 +33,7 @@ function create() {
   platformGenTimer.delay = Phaser.Timer.SECOND * 2;
 
   // platformGenTimer = game.time.events.loop
-  
   // createPlatform();
-  
   // createGround();
 
   createPlayer();

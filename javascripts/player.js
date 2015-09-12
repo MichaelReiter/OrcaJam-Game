@@ -1,5 +1,4 @@
 var player = game.add.sprite(0, game.world.height - 150, 'dude');
-
 var midJump = false;
 
 function createPlayer() {
@@ -14,14 +13,10 @@ function createPlayer() {
   player.body.bounce.y = 0;
   player.body.gravity.y = 300;
   player.body.collideWorldBounds = true;
+  player.body.velocity.x = scrollSpeed;
 
-  //  Our two animations, walking left and right.
-  player.animations.add('left', [0, 1, 2, 3], 10, true);
-  player.animations.add('right', [5, 6, 7, 8], 10, true);
-
-  player.animations.play('right');
-
-  player.body.velocity.x = 150;
+  player.animations.add('running', [5, 6, 7, 8], 10, true);
+  player.animations.play('running');
 
 }
 
@@ -30,11 +25,12 @@ function enablePlayerJump() {
 
   if (player.body.touching.down) {
     midJump = false;
-    player.body.velocity.x = 150;
+    player.body.velocity.x = scrollSpeed;
   }
 
   if (!player.body.touching.down) {
     player.body.velocity.x = 0;
+    midJump = true;
   }
 
   if (jumpKey.isDown && midJump == false) {
