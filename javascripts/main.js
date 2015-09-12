@@ -4,6 +4,7 @@ var game = new Phaser.Game(windowW, windowH, Phaser.CANVAS, '', {
   update: update
 });
 
+var scoreLabel;
 
 preload();
 
@@ -30,6 +31,12 @@ function create() {
 }
 
 function update() {
+
+  // console.log(score);
+
+  game.world.remove(scoreLabel)
+  score++;
+  scoreLabel = game.add.text(windowW/2, windowH/10, score, { font: 'bold 20pt Avenir Next', fill: '#ffffff' }); 
 
   changeNextPlatformTime( platformGenTimer );
 

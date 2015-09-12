@@ -1,6 +1,7 @@
 var scrollSpeed = 300;
 var windowH = window.innerHeight;
 var windowW = window.innerWidth;
+var score = 0;
 
 function preload() {
 
