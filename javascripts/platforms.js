@@ -1,7 +1,6 @@
 var platformHeight = 32;
 var prevPlatYPos = 2000;
 var minPlatformYDist = 150;
-var platformGenTimeScale = 2;
 
 function createPlatform() {
 
@@ -31,8 +30,10 @@ function createPlatform() {
 
 }
 
-function calcNextPlatformTime() {
+function changeNextPlatformTime(platTimer) {
 
-  platformGenTimeScale = ( Math.random() * 5 );
+  var platformGenTime = ( ( Math.random() * 3 * Phaser.Timer.SECOND ) + 2 );
+  platTimer.delay = platformGenTime;
+
 
 }
