@@ -35,6 +35,7 @@ function enablePlayerJump() {
 
   if (!player.body.touching.down) {
     player.body.velocity.x = 0;
+    midJump = true;
   }
 
   if (jumpKey.isDown && midJump == false) {
