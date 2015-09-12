@@ -1,19 +1,23 @@
-platforms = game.add.group();
+function createPlatforms() {
 
-platforms.enableBody = true;
+  platforms = game.add.group();
 
-game.physics.arcade.enable(platforms);
+  platforms.enableBody = true;
 
-var plat_y_pos = 300;
+  game.physics.arcade.enable(platforms);
 
-var plat_width;
+  var plat_y_pos = 300;
 
-plat_y_pos = 100 + ( Math.floor( ( Math.random() * 400 ) + 1 ) );
+  var plat_width;
 
-plat_width = Math.floor( ( Math.random() * 2 ) + 1 );
+  plat_y_pos = 100 + ( Math.floor( ( Math.random() * 400 ) + 1 ) );
 
-var ledge = platforms.create( 400, plat_y_pos, 'ground' );
+  plat_width = Math.floor( ( Math.random() * 2 ) + 1 );
 
-// ledge.scale( plat_width, 1);
+  var ledge = platforms.create( 400, plat_y_pos, 'ground' );
 
-ledge.body.velocity.x = -150;
+  // ledge.scale( plat_width, 1);
+
+  ledge.body.velocity.x = -150;
+  
+}
