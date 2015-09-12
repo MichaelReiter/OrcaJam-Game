@@ -1,5 +1,4 @@
-var game = new Phaser.Game(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, Phaser.CANVAS, 'gameArea');
-
+var game = new Phaser.Game(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, Phaser.CANVAS, '', { preload: preload, create: create, update: update });
 
 function preload() {
 
@@ -38,7 +37,6 @@ function create() {
   // ledge.scale( plat_width, 1);
 
   ledge.body.velocity.x = -150;
-
 
   createPlayer();
 

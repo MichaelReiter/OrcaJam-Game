@@ -1,6 +1,6 @@
 function createPlayer() {
 
-  // alert("it worked");
+  alert("it worked");
 
   // // The player and its settings
   // player = game.add.sprite(32, game.world.height - 150, 'dude');
