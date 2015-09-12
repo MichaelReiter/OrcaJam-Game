@@ -1,38 +1,43 @@
-pitGenChance = 5; // a variable from 0 - 9 that controls chance of a pit being generated
+var pitGenChance = 5; // a variable from 0 - 9 that controls chance of a pit being generated
 var prevGeneratedPit = false;
 
 function createGround() {
 
-	if( Math.random() < ( pitGenChance / 10 ) && !prevGeneratedPit ) {
+	if ( Math.random() < ( pitGenChance / 10 ) && !prevGeneratedPit ) {
 		prevGeneratedPit = true;
 		return ;
 	}
 
 	prevGeneratedPit = false;
 
-	ground = game.add.group();
+  groundGroup = game.add.group();
 
-	ground.enableBody = true;
+  groundGroup.enableBody = true;
 
-	game.physics.arcade.enableBody(ground);
+  game.physics.arcade.enableBody(groundGroup);
 
-	var ground = ground.create( game.world.width, game.world.height - platformHeight, 'ground' );
+  var groundInstance = groundGroup.create( game.world.width, game.world.height - platformHeight, 'ground' );
 
-	ground.body.velocity.x = -150;
+  groundInstance.body.velocity.x = -150;
+
+  groundInstance.body.immovable = true;
 
 }
 
 function createInitalGround() {
 
-	var initialGround = game.add.group();
-	
-	initialGround.enableBody = true;
+  initialGround = game.add.group();
+  
+  initialGround.enableBody = true;
 
-	game.physics.arcade.enableBody(initialGround);
-	
-	initialGround = initialGround.create(0, game.world.height - platformHeight, 'ground' );
+  game.physics.arcade.enableBody(initialGround);
+  
+  var initialGroundInstance = initialGround.create(0, game.world.height - platformHeight, 'ground' );
 
-	initialGround.width = game.world.width;
+  initialGroundInstance.width = game.world.width;
 
-	initialGround.body.velocity.x = -150;
+  initialGroundInstance.body.velocity.x = -150;
+
+  initialGroundInstance.body.immovable = true;
+
 }
