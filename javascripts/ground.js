@@ -17,7 +17,7 @@ function createGround() {
 
   game.physics.arcade.enableBody(groundGroup);
 
-  var groundInstance = groundGroup.create( game.world.width, game.world.height - platformHeight, 'ground' );
+  var groundInstance = groundGroup.create( game.world.width, game.world.height - platformHeight, 'ground');
 
   groundInstance.body.velocity.x = -150;
 
@@ -33,7 +33,7 @@ function createInitalGround() {
 
   game.physics.arcade.enableBody(initialGround);
   
-  var initialGroundInstance = initialGround.create(0, game.world.height - platformHeight, 'initialGround' );
+  var initialGroundInstance = initialGround.create(0, game.world.height - platformHeight, 'initialGround');
 
   initialGroundInstance.width = game.world.width;
 
@@ -41,4 +41,9 @@ function createInitalGround() {
 
   initialGroundInstance.body.immovable = true;
 
+}
+
+function destroyOldGround() {
+
+  //get rid of old ground once it goes offscreen
 }

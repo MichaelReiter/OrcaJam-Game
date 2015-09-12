@@ -34,4 +34,11 @@ function update() {
   game.physics.arcade.collide(player, initialGround);
   game.physics.arcade.collide(player, groundGroup);
 
+  destroyOldGround();
+  // for (var i = 0; i < groundGroup.children.length; i++) {
+  //   if (groundGroup.children[i].x < 0) {
+  //     alert("shit");
+  //   }
+  // }
+
 }
