@@ -1,10 +1,14 @@
 var player = game.add.sprite(0, game.world.height - 150, 'dude');
 var midJump = false;
+var desiredXPosition;
 
 function createPlayer() {
 
+  desiredXPosition = windowW/3;
+  console.log(desiredXPosition);
+
   // The player and its settings
-  player = game.add.sprite(50, game.world.height - 150, 'dude');
+  player = game.add.sprite(desiredXPosition, game.world.height - 150, 'dude');
 
   //  We need to enable physics on the player
   game.physics.arcade.enable(player);
@@ -21,11 +25,13 @@ function createPlayer() {
 }
 
 function enablePlayerJump() {
+
   var jumpKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
   if (player.body.touching.down) {
     midJump = false;
     player.body.velocity.x = scrollSpeed;
+    accelerateToRunningPosition();
   }
 
   if (!player.body.touching.down) {
@@ -42,7 +48,7 @@ function enablePlayerJump() {
 
 function accelerateToRunningPosition() {
 
-  if (player.x < 50) {
+  if (player.x < desiredXPosition) {
     player.body.velocity.x = scrollSpeed * 1.1;
   } else {
     player.body.velocity.x = scrollSpeed * 0.9;

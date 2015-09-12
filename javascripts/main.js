@@ -41,8 +41,6 @@ function update() {
 
   enablePlayerJump();
   enableZoneChange();
-  accelerateToRunningPosition();
-
 
   destroyOldGround();
  
