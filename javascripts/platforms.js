@@ -41,10 +41,3 @@ function createPlatform() {
   ledge.body.immovable = true;
   ledge.width = 200;
 }
-
-function changeNextPlatformTime(platTimer) {
-  // Math.random * 3 seconds generates a number between 0 and 3, the random factor in when the next platform will come
-  // phaser.Timer.SECOND is the offset added to the random factor, so the next platform will not come for at LEAST a second
-  var platformGenTime = ( ( Math.random() * 3 * Phaser.Timer.SECOND ) + Phaser.Timer.SECOND );
-  platTimer.delay = platformGenTime;
-}
