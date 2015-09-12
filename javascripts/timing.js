@@ -5,27 +5,28 @@
 
   	// 0 is passed to start generation with game start
   	platformGenTimer = game.time.events.loop(0, createPlatform, this);
-
-	}
-
-	function updatePlatformGeneration() {
-	  // generation delay for normal gameplay is set
   	platformGenTimer.delay = platformGenDelay;
 
 	}
+
+	// function updatePlatformGeneration() {
+	//   // generation delay for normal gameplay is set
+
+	// }
 
 	function startGroundGeneration() {
 
   	// 0 is passed to start generation with game start
   	groundGenTimer = game.time.events.loop(0 , createGround, this);
+  	groundGenTimer.delay = groundGenDelay;
+
 	
 	}
 
-	function updateGroundGeneration() {
-		// generation delay for normal gameplay is set
+	// function updateGroundGeneration() {
+	// 	// generation delay for normal gameplay is set
 
-  	groundGenTimer.delay = groundGenDelay;
-	}
+	// }
 
 	function changeNextPlatformTime(platTimer) {
 
