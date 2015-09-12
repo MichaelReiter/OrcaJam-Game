@@ -16,13 +16,16 @@ function create() {
   sky.height = game.height;
   sky.width = game.width;
 
-  game.time.events.loop(Phaser.Timer.SECOND * platformGenTimeScale, createPlatform, this);
-  game.time.events.loop(Phaser.Timer.SECOND * 2, createGround, this);
-
-  createPlatform();
-  
   createInitalGround();
-  createGround();
+
+  groundGenTimer = game.time.events.loop(Phaser.Timer.SECOND * 2, createGround, this);
+  platformGenTimer = game.time.events.loop(Phaser.Timer.SECOND * 2, createPlatform, this);
+
+  // platformGenTimer = game.time.events.loop
+  
+  // createPlatform();
+  
+  // createGround();
 
   createPlayer();
 
@@ -49,6 +52,6 @@ function update() {
   // }
   // 
   
-  calcNextPlatformTime();
+  changeNextPlatformTime( platformGenTimer );
   // console.log( platformGenTimeScale );
 }
