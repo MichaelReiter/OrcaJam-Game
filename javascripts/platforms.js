@@ -19,7 +19,6 @@ function createPlatform() {
   while ( Math.abs( platYPos - prevPlatYPos ) < minPlatformYDist )
 
   prevPlatYPos = platYPos;
-  // var platformWidth = Math.floor( Math.random() );
 
   var ledge = platformsGroup.create( game.world.width, platYPos, 'ground' );
   ledge.body.velocity.x = -scrollSpeed;

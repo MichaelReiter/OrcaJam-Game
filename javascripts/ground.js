@@ -1,7 +1,6 @@
 var pitGenChance = 5; // a variable from 0 - 9 that controls chance of a pit being generated
 var prevGeneratedPit = false;
 
-
 function initializeGroundGroups()
 {
 	groundGroup = game.add.group();

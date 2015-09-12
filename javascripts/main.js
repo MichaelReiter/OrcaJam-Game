@@ -4,7 +4,6 @@ var game = new Phaser.Game(windowW, windowH, Phaser.CANVAS, '', {
   update: update
 });
 
-
 var scrollSpeed = 150;
 
 preload();
@@ -25,7 +24,7 @@ function create() {
   createInitalGround();
 
   // 0 is passed to start generation with game start
-  groundGenTimer = game.time.events.loop(0 , createGround, this);
+  groundGenTimer = game.time.events.loop(0, createGround, this);
   platformGenTimer = game.time.events.loop(0, createPlatform, this);
 
   // generation delay for normal gameplay is set
@@ -42,18 +41,17 @@ function create() {
 
 function update() {
 
-  // game.physics.arcade.collide(player, platforms);
-  
   game.physics.arcade.collide(initialGroundGroup, player);
-  game.physics.arcade.collide(groundGroup, player );
-  game.physics.arcade.collide( platformsGroup, player );
+  game.physics.arcade.collide(groundGroup, player);
+  game.physics.arcade.collide(platformsGroup, player);
 
   destroyOldGround();
 
   enablePlayerJump();
+  enableZoneChange();
 
-  destroyOldGround();
-  
-  changeNextPlatformTime( platformGenTimer );
+  console.log(player.y);
+
+  changeNextPlatformTime(platformGenTimer);
  
 }
