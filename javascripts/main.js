@@ -1,13 +1,6 @@
-var game = new Phaser.Game(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, Phaser.CANVAS, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.CANVAS, '', { preload: preload, create: create, update: update });
 
-function preload() {
-
-  game.load.image('sky', 'assets/sky.png');
-  game.load.image('ground', 'assets/platform.png');
-  game.load.image('star', 'assets/star.png');
-  game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
-
-}
+preload();
 
 function create() {
 
@@ -26,7 +19,6 @@ function create() {
   var plat_y_pos = 300;
 
   var plat_width;
-
 
   plat_y_pos = 100 + ( Math.floor( ( Math.random() * 400 ) + 1 ) );
 
@@ -66,8 +58,6 @@ function create() {
   // ledge = platforms.create(-150, 250, 'ground');
 
   // ledge.body.immovable = true;
-
-
 
 }
 
