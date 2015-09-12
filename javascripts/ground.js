@@ -1,27 +1,33 @@
 function createGround() {
 
-	ground = game.add.group();
+  ground = game.add.group();
 
-	ground.enableBody = true;
+  ground.enableBody = true;
 
-	game.physics.arcade.enableBody(ground);
+  game.physics.arcade.enableBody(ground);
 
-	var ground = ground.create( game.world.width, game.world.height - platformHeight, 'ground' );
+  var groundInstance = ground.create( game.world.width, game.world.height - platformHeight, 'ground' );
 
-	ground.body.velocity.x = -150;
+  groundInstance.body.velocity.x = -150;
+
+  groundInstance.body.immovable = true;
+
 }
 
 function createInitalGround() {
 
-	var initialGround = game.add.group();
-	
-	initialGround.enableBody = true;
+  initialGround = game.add.group();
+  
+  initialGround.enableBody = true;
 
-	game.physics.arcade.enableBody(initialGround);
-	
-	initialGround = initialGround.create(0, game.world.height - 50, 'ground' );
+  game.physics.arcade.enableBody(initialGround);
+  
+  initialGround = initialGround.create(0, game.world.height - platformHeight, 'ground' );
 
-	initialGround.width = game.world.width;
+  initialGround.width = game.world.width;
 
-	initialGround.body.velocity.x = -150;
+  initialGround.body.velocity.x = -150;
+
+  initialGround.body.immovable = true;
+
 }

@@ -1,4 +1,4 @@
-platformHeight = 32;
+var platformHeight = 32;
 
 function createPlatform() {
 
@@ -10,12 +10,14 @@ function createPlatform() {
 
   var plat_y_pos = 100 + ( Math.floor( ( Math.random() * 400 ) + 1 ) );;
 
-  var platformWidth = Math.floor( ( Math.random() * 2 ) + 1 );
+  var platformWidth = Math.floor( ( Math.random() ) + 1 );
 
   var ledge = platforms.create( 400, plat_y_pos, 'ground' );
 
   ledge.scale.setTo(platformWidth, 1);
 
   ledge.body.velocity.x = -150;
+
+  ledge.body.immovable = true;
 
 }
