@@ -16,6 +16,9 @@ function create() {
   sky.height = game.height;
   sky.width = game.width;
 
+  initializeGroundGroups();
+  initializePlatformGroup();
+  
   createInitalGround();
 
   groundGenTimer = game.time.events.loop(Phaser.Timer.SECOND * 2, createGround, this);
@@ -37,6 +40,7 @@ function update() {
   
   game.physics.arcade.collide(initialGroundGroup, player);
   game.physics.arcade.collide(groundGroup, player );
+  game.physics.arcade.collide( platformsGroup, player );
 
   destroyOldGround();
 

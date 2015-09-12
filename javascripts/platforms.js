@@ -1,18 +1,24 @@
 var platformHeight = 32;
 var prevPlatYPos = 2000;
 var minPlatformYDist = 150;
+var platformCeilingOffset = 200;
+var platformFloorOffset = 10;
+
+
+function initializePlatformGroup() {
+  platformsGroup = game.add.group();
+
+  platformsGroup.enableBody = true;
+
+  game.physics.arcade.enable(platformsGroup);
+
+}
 
 function createPlatform() {
 
-  platforms = game.add.group();
-
-  platforms.enableBody = true;
-
-  game.physics.arcade.enable(platforms);
-
-
   do {
-    var platYPos = 100 + ( Math.floor( ( Math.random() * 400 ) + 1 ) );
+    var platYPos =  platformCeilingOffset + ( Math.random() * ( game.world.height - platformCeilingOffset - platformFloorOffset ) );
+    console.log(platYPos);
   }
   while ( Math.abs( platYPos - prevPlatYPos ) < minPlatformYDist )
 
@@ -20,7 +26,7 @@ function createPlatform() {
 
   // var platformWidth = Math.floor( Math.random() );
 
-  var ledge = platforms.create( game.world.width, platYPos, 'ground' );
+  var ledge = platformsGroup.create( game.world.width, platYPos, 'ground' );
 
   // ledge.scale.setTo(platformWidth, 1);
 
