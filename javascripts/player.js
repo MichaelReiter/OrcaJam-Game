@@ -1,3 +1,5 @@
+var midJump = false;
+
 function createPlayer() {
 
   // The player and its settings
@@ -19,4 +21,19 @@ function createPlayer() {
 
   player.body.velocity.x = 150;
 
+}
+
+function enablePlayerJump() {
+  var jumpKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+  if (player.body.touching.down) {
+    midJump = false;
+    player.body.velocity.x = 150;
+  }
+
+  if (jumpKey.isDown && midJump == false) {
+    midJump = true;
+    player.body.velocity.x = 0;
+    player.body.velocity.y = -250;
+  }
 }
