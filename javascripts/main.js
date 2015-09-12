@@ -13,6 +13,7 @@ function create() {
   sky.width = game.width;
 
   game.time.events.loop(Phaser.Timer.SECOND * 2, createPlatform, this);
+  game.time.events.loop(Phaser.Timer.SECOND * 2, createGround, this);
 
   createGround();
 
