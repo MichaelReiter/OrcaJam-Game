@@ -1,4 +1,4 @@
-var pitGenChance = 5; // a variable from 0 - 9 that controls chance of a pit being generated
+var pitGenChance = 3; // a variable from 0 - 9 that controls chance of a pit being generated
 var prevGeneratedPit = false;
 
 function initializeGroundGroups() {
@@ -12,6 +12,7 @@ function initializeGroundGroups() {
 }
 
 function createGround() {
+
 
 	// prev generated pit is true if a pit was generated in the last call of createGround, else it is false
 	// the pitGenChange is divided by ten to become a decimal between 0 and 1, between Math.random() generates a number between
