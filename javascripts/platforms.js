@@ -2,7 +2,7 @@ var platformHeight = 32;
 var prevPlatYPos = 2000;
 var minPlatformYDist = 150;
 var platformCeilingOffset = 200;
-var platformFloorOffset = 10;
+var platformFloorOffset = 100;
 
 
 function initializePlatformGroup() {
@@ -38,7 +38,7 @@ function createPlatform() {
 
 function changeNextPlatformTime(platTimer) {
 
-  var platformGenTime = ( ( Math.random() * 3 * Phaser.Timer.SECOND ) + 2 );
+  var platformGenTime = ( ( Math.random() * 3 * Phaser.Timer.SECOND ) + Phaser.Timer.SECOND );
   platTimer.delay = platformGenTime;
 
 
