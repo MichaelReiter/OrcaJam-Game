@@ -1,4 +1,14 @@
+pitGenChance = 5; // a variable from 0 - 9 that controls chance of a pit being generated
+var prevGeneratedPit = false;
+
 function createGround() {
+
+	if( Math.random() < ( pitGenChance / 10 ) && !prevGeneratedPit ) {
+		prevGeneratedPit = true;
+		return ;
+	}
+
+	prevGeneratedPit = false;
 
 	ground = game.add.group();
 
@@ -9,6 +19,7 @@ function createGround() {
 	var ground = ground.create( game.world.width, game.world.height - platformHeight, 'ground' );
 
 	ground.body.velocity.x = -150;
+
 }
 
 function createInitalGround() {
@@ -19,7 +30,7 @@ function createInitalGround() {
 
 	game.physics.arcade.enableBody(initialGround);
 	
-	initialGround = initialGround.create(0, game.world.height - 50, 'ground' );
+	initialGround = initialGround.create(0, game.world.height - platformHeight, 'ground' );
 
 	initialGround.width = game.world.width;
 

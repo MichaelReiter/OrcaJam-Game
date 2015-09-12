@@ -13,15 +13,11 @@ function create() {
   sky.width = game.width;
 
   game.time.events.loop(Phaser.Timer.SECOND * 2, createPlatform, this);
-  game.time.events.loop(Phaser.Timer.SECOND * 8, createGround, this);
+  game.time.events.loop(Phaser.Timer.SECOND * 2, createGround, this);
 
-<<<<<<< HEAD
   createPlatform();
+  
   createInitalGround();
-||||||| merged common ancestors
-  createPlatform();
-=======
->>>>>>> 016cc71f7849f4801d8db0f2d7cbbd0b5c4b4aa9
   createGround();
 
   createPlayer();
