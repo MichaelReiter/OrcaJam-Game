@@ -11,7 +11,9 @@ function create() {
   game.add.sprite(0, 0, 'sky');
   // sky.scale.setTo(2,2);
 
-  createPlatforms();
+  game.time.events.loop(Phaser.Timer.SECOND * 2, createPlatform, this);
+
+  createPlatform();
 
   createPlayer();
 

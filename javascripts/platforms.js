@@ -1,4 +1,4 @@
-function createPlatforms() {
+function createPlatform() {
 
   platforms = game.add.group();
 
@@ -19,5 +19,5 @@ function createPlatforms() {
   // ledge.scale( plat_width, 1);
 
   ledge.body.velocity.x = -150;
-  
+
 }
