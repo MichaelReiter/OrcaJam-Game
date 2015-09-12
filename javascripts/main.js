@@ -32,6 +32,8 @@ function create() {
   //  This stops it from falling away when you jump on it
   ground.body.immovable = true;
 
+  createPlayer();
+
   //  Now let's create two ledges
   var ledge = platforms.create(400, 400, 'ground');
 
