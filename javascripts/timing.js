@@ -1,4 +1,4 @@
-  var groundGenDelay = 300000 / scrollSpeed;
+  var groundGenDelay = ( 300000 / scrollSpeed ) / 2;
   var platformGenDelay = ( 300000 / scrollSpeed ) / 2;
 
 	function startPlatformGeneration() {
@@ -18,6 +18,7 @@
 
   	// 0 is passed to start generation with game start
   	groundGenTimer = game.time.events.loop(0 , createGround, this);
+  	console.log(groundGenDelay);
   	groundGenTimer.delay = groundGenDelay;
 
 	
