@@ -9,6 +9,7 @@ function create() {
 
   //  A simple background for our game
   game.add.sprite(0, 0, 'sky');
+  // sky.scale.setTo(2,2);
 
   platforms = game.add.group();
 
@@ -33,7 +34,7 @@ function create() {
   createPlayer();
 
   //  Now let's create two ledges
-  var ledge = platforms.create(400, 400, 'ground');
+  //var ledge = platforms.create(400, 400, 'ground');
 
   // //  The platforms group contains the ground and the 2 ledges we can jump on
   // platforms = game.add.group();
