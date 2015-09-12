@@ -31,7 +31,14 @@ function create() {
 function update() {
 
   // game.physics.arcade.collide(player, platforms);
-  game.physics.arcade.collide(player, initialGround);
-  game.physics.arcade.collide(player, groundGroup);
+  
+  game.physics.arcade.collide( initialGroundGroup, player);
+
+  game.physics.arcade.collide( groundGroup, player );
+
+  // var len = groundGroup.children.length;
+  // for(var i = 0; i < len; i ++ ) {
+  //   game.physics.arcade.collide(  player, groundGroup.children[i] );
+  // }
 
 }

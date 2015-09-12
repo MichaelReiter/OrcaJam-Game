@@ -1,6 +1,7 @@
 var pitGenChance = 5; // a variable from 0 - 9 that controls chance of a pit being generated
 var prevGeneratedPit = false;
-var groundGroup;
+
+
 
 function createGround() {
 
@@ -10,12 +11,6 @@ function createGround() {
 	}
 
 	prevGeneratedPit = false;
-
-  groundGroup = game.add.group();
-
-  groundGroup.enableBody = true;
-
-  game.physics.arcade.enableBody(groundGroup);
 
   var groundInstance = groundGroup.create( game.world.width, game.world.height - platformHeight, 'ground' );
 
@@ -27,13 +22,17 @@ function createGround() {
 
 function createInitalGround() {
 
-  initialGround = game.add.group();
-  
-  initialGround.enableBody = true;
+	groundGroup = game.add.group();
+  groundGroup.enableBody = true;
+  game.physics.arcade.enableBody(groundGroup);
 
-  game.physics.arcade.enableBody(initialGround);
+  initialGroundGroup = game.add.group();
   
-  var initialGroundInstance = initialGround.create(0, game.world.height - platformHeight, 'initialGround' );
+  initialGroundGroup.enableBody = true;
+
+  game.physics.arcade.enableBody(initialGroundGroup);
+  
+  var initialGroundInstance = initialGroundGroup.create(0, game.world.height - platformHeight, 'initialGround' );
 
   initialGroundInstance.width = game.world.width;
 
