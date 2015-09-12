@@ -1,11 +1,10 @@
 var player = game.add.sprite(0, game.world.height - 150, 'dude');
 var midJump = false;
-var playerXPosition = 50;
 
 function createPlayer() {
 
   // The player and its settings
-  player = game.add.sprite(playerXPosition, game.world.height - 150, 'dude');
+  player = game.add.sprite(50, game.world.height - 150, 'dude');
 
   //  We need to enable physics on the player
   game.physics.arcade.enable(player);
@@ -38,6 +37,15 @@ function enablePlayerJump() {
     midJump = true;
     player.body.velocity.x = 0;
     player.body.velocity.y = -500;
+  }
+}
+
+function accelerateToRunningPosition() {
+
+  if (player.x < 50) {
+    player.body.velocity.x = scrollSpeed * 1.1;
+  } else {
+    player.body.velocity.x = scrollSpeed * 0.9;
   }
 }
 

@@ -49,6 +49,7 @@ function update() {
 
   enablePlayerJump();
   enableZoneChange();
+  accelerateToRunningPosition();
 
   changeNextPlatformTime(platformGenTimer);
  
