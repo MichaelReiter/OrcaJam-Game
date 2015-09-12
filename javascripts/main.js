@@ -14,6 +14,7 @@ function create() {
   game.time.events.loop(Phaser.Timer.SECOND * 2, createPlatform, this);
 
   createPlatform();
+  createGround();
 
   createPlayer();
 
