@@ -18,11 +18,12 @@ function create() {
 
   initializeGroundGroups();
   initializePlatformGroup();
-  
+
   createInitalGround();
 
-  groundGenTimer = game.time.events.loop(Phaser.Timer.SECOND * 2, createGround, this);
+  groundGenTimer = game.time.events.loop(0 , createGround, this);
   platformGenTimer = game.time.events.loop(Phaser.Timer.SECOND * 2, createPlatform, this);
+  groundGenTimer.delay = Phaser.Timer.SECOND;
 
   // platformGenTimer = game.time.events.loop
   

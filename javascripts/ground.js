@@ -25,6 +25,7 @@ function createGround() {
   var groundInstance = groundGroup.create( game.world.width, game.world.height - platformHeight, 'ground');
   groundInstance.body.velocity.x = -150;
   groundInstance.body.immovable = true;
+  groundInstance.width *= 0.5;
 
 }
 
@@ -32,7 +33,7 @@ function createInitalGround() {
 
   
   var initialGroundInstance = initialGroundGroup.create(0, game.world.height - platformHeight, 'ground' );
-  initialGroundInstance.width = game.world.width;
+  initialGroundInstance.width = game.world.width * 1.2;
   initialGroundInstance.body.velocity.x = -150;
   initialGroundInstance.body.immovable = true;
 
