@@ -12,6 +12,7 @@ function create() {
   // sky.scale.setTo(2,2);
 
   game.time.events.loop(Phaser.Timer.SECOND * 2, createPlatform, this);
+  game.time.events.loop(Phaser.Timer.SECOND * 2, createGround, this);
 
   createPlatform();
   createGround();
