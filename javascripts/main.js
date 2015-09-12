@@ -16,7 +16,7 @@ function create() {
   sky.height = game.height;
   sky.width = game.width;
 
-  game.time.events.loop(Phaser.Timer.SECOND * 2, createPlatform, this);
+  game.time.events.loop(Phaser.Timer.SECOND * platformGenTimeScale, createPlatform, this);
   game.time.events.loop(Phaser.Timer.SECOND * 2, createGround, this);
 
   createPlatform();
@@ -38,5 +38,7 @@ function update() {
   destroyOldGround();
 
   enablePlayerJump();
+
+  calcNextPlatformTime();
 
 }
