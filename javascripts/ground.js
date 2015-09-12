@@ -30,7 +30,7 @@ function createInitalGround() {
 
   game.physics.arcade.enableBody(initialGroundGroup);
   
-  var initialGroundInstance = initialGroundGroup.create(0, game.world.height - platformHeight, 'initialGround' );
+  var initialGroundInstance = initialGroundGroup.create(0, game.world.height - platformHeight, 'ground' );
 
   initialGroundInstance.width = game.world.width;
 
