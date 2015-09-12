@@ -13,6 +13,8 @@ function initializeGroundGroups() {
 
 function createGround() {
 
+	console.log("attempting to generate ground");
+
 	// prev generated pit is true if a pit was generated in the last call of createGround, else it is false
 	// the pitGenChange is divided by ten to become a decimal between 0 and 1, between Math.random() generates a number between
 	// 0 and 1. if the random number generated is less than the pitGenChance number, a pit is generated
