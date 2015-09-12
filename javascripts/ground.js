@@ -10,12 +10,6 @@ function createGround() {
 
 	prevGeneratedPit = false;
 
-  groundGroup = game.add.group();
-
-  groundGroup.enableBody = true;
-
-  game.physics.arcade.enableBody(groundGroup);
-
   var groundInstance = groundGroup.create( game.world.width, game.world.height - platformHeight, 'ground');
 
   groundInstance.body.velocity.x = -150;
