@@ -11,13 +11,17 @@ function create() {
   var sky = game.add.sprite(0, 0, 'sky');
   sky.height = game.height;
   sky.width = game.width;
-  // sky.scale.setTo(2,2);
 
   game.time.events.loop(Phaser.Timer.SECOND * 2, createPlatform, this);
   game.time.events.loop(Phaser.Timer.SECOND * 8, createGround, this);
 
+<<<<<<< HEAD
   createPlatform();
   createInitalGround();
+||||||| merged common ancestors
+  createPlatform();
+=======
+>>>>>>> 016cc71f7849f4801d8db0f2d7cbbd0b5c4b4aa9
   createGround();
 
   createPlayer();
