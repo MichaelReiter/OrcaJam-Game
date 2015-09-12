@@ -1,17 +1,18 @@
 var player = game.add.sprite(0, game.world.height - 150, 'dude');
 var midJump = false;
+var playerXPosition = 50;
 
 function createPlayer() {
 
   // The player and its settings
-  player = game.add.sprite(50, game.world.height - 150, 'dude');
+  player = game.add.sprite(playerXPosition, game.world.height - 150, 'dude');
 
   //  We need to enable physics on the player
   game.physics.arcade.enable(player);
 
   //  Player physics properties. Give the little guy a slight bounce.
   player.body.bounce.y = 0;
-  player.body.gravity.y = 300;
+  player.body.gravity.y = 1000;
   player.body.collideWorldBounds = false;
   player.body.velocity.x = scrollSpeed;
 
@@ -36,7 +37,7 @@ function enablePlayerJump() {
   if (jumpKey.isDown && midJump == false) {
     midJump = true;
     player.body.velocity.x = 0;
-    player.body.velocity.y = -250;
+    player.body.velocity.y = -500;
   }
 }
 

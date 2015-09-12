@@ -50,8 +50,6 @@ function update() {
   enablePlayerJump();
   enableZoneChange();
 
-  console.log(player.y);
-
   changeNextPlatformTime(platformGenTimer);
  
 }

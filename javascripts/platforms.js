@@ -2,7 +2,7 @@ var platformHeight = 32;
 var prevPlatYPos = 2000;
 var minPlatformYDist = 150;
 var platformCeilingOffset = ( windowH * 0.1 ); //this is the distance between the height of the game and the tallest platform
-var platformFloorOffset = ( windowH * 0.1 ); //this is the distance between the bottom of the game and the lowest platform
+var platformFloorOffset = ( windowH * 0.15 ); //this is the distance between the bottom of the game and the lowest platform
 
 function initializePlatformGroup() {
   platformsGroup = game.add.group();
@@ -43,7 +43,6 @@ function createPlatform() {
 }
 
 function changeNextPlatformTime(platTimer) {
-
   // Math.random * 3 seconds generates a number between 0 and 3, the random factor in when the next platform will come
   // phaser.Timer.SECOND is the offset added to the random factor, so the next platform will not come for at LEAST a second
   var platformGenTime = ( ( Math.random() * 3 * Phaser.Timer.SECOND ) + Phaser.Timer.SECOND );
