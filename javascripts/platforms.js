@@ -21,7 +21,7 @@ function createPlatform() {
   // var platformWidth = Math.floor( Math.random() );
 
   var ledge = platformsGroup.create( game.world.width, platYPos, 'ground' );
-  ledge.body.velocity.x = -150;
+  ledge.body.velocity.x = -scrollSpeed;
   ledge.body.immovable = true;
   ledge.width = 200;
 }

@@ -23,7 +23,7 @@ function createGround() {
 	prevGeneratedPit = false;
 
   var groundInstance = groundGroup.create( game.world.width, game.world.height - platformHeight, 'ground');
-  groundInstance.body.velocity.x = -150;
+  groundInstance.body.velocity.x = -scrollSpeed;
   groundInstance.body.immovable = true;
 
 }
@@ -33,7 +33,7 @@ function createInitalGround() {
   
   var initialGroundInstance = initialGroundGroup.create(0, game.world.height - platformHeight, 'ground' );
   initialGroundInstance.width = game.world.width;
-  initialGroundInstance.body.velocity.x = -150;
+  initialGroundInstance.body.velocity.x = -scrollSpeed;
   initialGroundInstance.body.immovable = true;
 
 }
