@@ -8,7 +8,9 @@ function create() {
   game.physics.startSystem(Phaser.Physics.ARCADE);
 
   //  A simple background for our game
-  game.add.sprite(0, 0, 'sky');
+  var sky = game.add.sprite(0, 0, 'sky');
+  sky.height = game.height;
+  sky.width = game.width;
   // sky.scale.setTo(2,2);
 
   game.time.events.loop(Phaser.Timer.SECOND * 2, createPlatform, this);
