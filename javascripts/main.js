@@ -1,4 +1,5 @@
-var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, Phaser.CANVAS, 'gameArea');
+
 
 function preload() {
 
@@ -17,33 +18,62 @@ function create() {
   //  A simple background for our game
   game.add.sprite(0, 0, 'sky');
 
-  //  The platforms group contains the ground and the 2 ledges we can jump on
   platforms = game.add.group();
 
-  //  We will enable physics for any object that is created in this group
   platforms.enableBody = true;
 
-  // Here we create the ground.
-  var ground = platforms.create(0, game.world.height - 64, 'ground');
+  game.physics.arcade.enable(platforms);
 
-  //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
-  ground.scale.setTo(2, 2);
+  var plat_y_pos = 300;
 
-  //  This stops it from falling away when you jump on it
-  ground.body.immovable = true;
+  var plat_width;
+
+
+  plat_y_pos = 100 + ( Math.floor( ( Math.random() * 400 ) + 1 ) );
+
+  plat_width = Math.floor( ( Math.random() * 2 ) + 1 );
+
+  var ledge = platforms.create( 400, plat_y_pos, 'ground' );
+
+  // ledge.scale( plat_width, 1);
+
+  ledge.body.velocity.x = -150;
+
 
   createPlayer();
 
   //  Now let's create two ledges
   var ledge = platforms.create(400, 400, 'ground');
 
-  ledge.body.immovable = true;
+  // //  The platforms group contains the ground and the 2 ledges we can jump on
+  // platforms = game.add.group();
 
-  ledge = platforms.create(-150, 250, 'ground');
+  // //  We will enable physics for any object that is created in this group
+  // platforms.enableBody = true;
 
-  ledge.body.immovable = true;
+  // // Here we create the ground.
+  // var ground = platforms.create(0, game.world.height - 64, 'ground');
+
+  // //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
+  // ground.scale.setTo(2, 2);
+
+  // //  This stops it from falling away when you jump on it
+  // ground.body.immovable = true;
+
+  // //  Now let's create two ledges
+  // var ledge = platforms.create(400, 400, 'ground');
+
+  // ledge.body.immovable = true;
+
+  // ledge = platforms.create(-150, 250, 'ground');
+
+  // ledge.body.immovable = true;
+
+
 
 }
 
 function update() {
+
+
 }
