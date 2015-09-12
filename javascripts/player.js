@@ -1,7 +1,7 @@
 function createPlayer() {
 
   // The player and its settings
-  player = game.add.sprite(32, game.world.height - 150, 'dude');
+  player = game.add.sprite(0, game.world.height - 150, 'dude');
 
   //  We need to enable physics on the player
   game.physics.arcade.enable(player);
@@ -16,5 +16,7 @@ function createPlayer() {
   player.animations.add('right', [5, 6, 7, 8], 10, true);
 
   player.animations.play('right');
+
+  player.body.velocity.x = 150;
 
 }
