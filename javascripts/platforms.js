@@ -12,7 +12,7 @@ function createPlatform() {
 
   var ledge = platforms.create( 400, plat_y_pos, 'ground' );
 
-  // ledge.scale( plat_width, 1);
+  ledge.scale.setTo(plat_width, 1);
 
   ledge.body.velocity.x = -150;
 
