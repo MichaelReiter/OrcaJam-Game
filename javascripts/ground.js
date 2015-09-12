@@ -14,6 +14,11 @@ function initializeGroundGroups()
 
 function createGround() {
 
+	// prev generated pit is true if a pit was generated in the last call of createGround, else it is false
+	// the pitGenChange is divided by ten to become a decimal between 0 and 1, between Math.random() generates a number between
+	// 0 and 1. if the random number generated is less than the pitGenChance number, a pit is generated
+	// the higher the pitGenCHance number becomes, the greater the chance of the random number being less than it becomes, and a pit
+	// is more likely to be generated
 	if ( Math.random() < ( pitGenChance / 10 ) && !prevGeneratedPit ) {
 		prevGeneratedPit = true;
 		return ;
@@ -32,7 +37,7 @@ function createInitalGround() {
 
   
   var initialGroundInstance = initialGroundGroup.create(0, game.world.height - platformHeight, 'ground' );
-  
+
   initialGroundInstance.width = game.world.width * 1.2;
   initialGroundInstance.body.velocity.x = -scrollSpeed;
   initialGroundInstance.body.immovable = true;
