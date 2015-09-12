@@ -1,8 +1,9 @@
-var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.CANVAS, '', {
+var game = new Phaser.Game(windowW, windowH, Phaser.CANVAS, '', {
   preload: preload,
   create: create,
   update: update
 });
+
 
 preload();
 
@@ -21,9 +22,13 @@ function create() {
 
   createInitalGround();
 
+  // 0 is passed to start generation with game start
   groundGenTimer = game.time.events.loop(0 , createGround, this);
-  platformGenTimer = game.time.events.loop(Phaser.Timer.SECOND * 2, createPlatform, this);
+  platformGenTimer = game.time.events.loop(0, createPlatform, this);
+
+  // generation delay for normal gameplay is set
   groundGenTimer.delay = Phaser.Timer.SECOND;
+  platformGenTimer.delay = Phaser.Timer.SECOND * 2;
 
   // platformGenTimer = game.time.events.loop
   

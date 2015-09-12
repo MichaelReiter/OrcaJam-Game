@@ -1,8 +1,8 @@
 var platformHeight = 32;
 var prevPlatYPos = 2000;
 var minPlatformYDist = 150;
-var platformCeilingOffset = 200;
-var platformFloorOffset = 100;
+var platformCeilingOffset = ( windowH * 0.1 );
+var platformFloorOffset = ( windowH * 0.1 );
 
 
 function initializePlatformGroup() {
@@ -17,8 +17,9 @@ function initializePlatformGroup() {
 function createPlatform() {
 
   do {
-    var platYPos =  platformCeilingOffset + ( Math.random() * ( game.world.height - platformCeilingOffset - platformFloorOffset ) );
-    console.log(platYPos);
+    var platYPos =  platformCeilingOffset + ( Math.random() * ( game.height - platformCeilingOffset - platformFloorOffset ) );
+    console.log(platformCeilingOffset);
+    console.log(platformFloorOffset);
   }
   while ( Math.abs( platYPos - prevPlatYPos ) < minPlatformYDist )
 

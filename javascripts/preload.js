@@ -1,3 +1,6 @@
+var windowH = window.innerHeight;
+var windowW = window.innerWidth;
+
 function preload() {
 
   game.load.image('sky', 'assets/sky.png');
