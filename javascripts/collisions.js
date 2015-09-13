@@ -1,5 +1,4 @@
 function placeHolder() {
-
 }
 
 function playerVsPlatCollide() {

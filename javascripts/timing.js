@@ -6,10 +6,8 @@ var platformGenDelayMultipler = 0.43;
 var platformGenRandomnessMultipler = 2.5;
 
 function updateSpeed(speed) {
-
 	scrollSpeed = speed;
 }
-
 
 function startScoreCounting() {
 	score = 0;
@@ -24,10 +22,9 @@ function startScoreCounting() {
 //   platformGenTimer.delay = newDelay;
 // }
 
-function enablePauseGame() {
-  var pauseKey = game.input.keyboard.addKey(Phaser.Keyboard.ESC);
-
-  if (pauseKey.isDown) {
-    alert("Game paused.");
-  }
-}
+// function enablePauseGame() {
+//   var pauseKey = game.input.keyboard.addKey(Phaser.Keyboard.ESC);
+//   if (pauseKey.isDown) {
+//     alert("Game paused.");
+//   }
+// }

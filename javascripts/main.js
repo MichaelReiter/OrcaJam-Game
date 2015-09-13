@@ -9,13 +9,11 @@ var scoreLabel, background;
 preload();
 
 function create() {
-
   game.physics.startSystem(Phaser.Physics.ARCADE);
 
   background = game.add.sprite(0, 0, 'background');
   background.height = game.height;
   background.width = game.width;
-
 
   initializeGroundGroup();
   initializePlatformGroup();
@@ -31,8 +29,6 @@ function create() {
 }
 
 function update() {
-
-
   game.physics.arcade.collide(initialGroundGroup, player);
   game.physics.arcade.collide( platformsGroup, player, placeHolder, playerVsPlatCollide );
   game.physics.arcade.collide(groundGroup, player, placeHolder, playerVsGroundCollide);
@@ -40,38 +36,31 @@ function update() {
   enablePlayerJump();
   enableZoneChange();
   enablePlayerDeathByLeftBoundary();
-  // enablePauseGame();
-  
 
   destroyOldGround();
   destroyOldPlatforms();
   
-  if( groundLevel ) {
+  if (groundLevel) {
     console.log("in ground");
-    groundGenUpdateCount = 50;
+    groundGenUpdateCount = 7;
     platformGenUpdateCount = 50;
   }
-
-  if( inHell ) {
+  if (inHell) {
     groundGenUpdateCount = 5;
-    platformGenUpdateCount = 80;
+    platformGenUpdateCount = 50;
   }
-
-
-  if( inHeaven ) {
+  if (inHeaven) {
     groundGenUpdateCount = 1;
     platformGenUpdateCount = 30;
   }
 
   updateCounter++;
 
-  if( updateCounter % groundGenUpdateCount == 0 ) {
-    console.log("creating ground");
-      createGround();
+  if( !inHeaven && updateCounter % groundGenUpdateCount == 0 ) {
+    createGround();
   }
 
   if( updateCounter % platformGenUpdateCount == 0 ) {
-      createPlatform();
+    createPlatform();
   }
-
 }

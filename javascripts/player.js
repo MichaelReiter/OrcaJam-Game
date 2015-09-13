@@ -171,19 +171,10 @@ function toGround() {
   groundSprite = 'ground';
   platformSprite = 'ground';
 
-
-
-
-
-
-
-
-
-
   if (fallFromHeaven) {
-    player.y = ( windowH * 0.1);
+    player.y = (windowH * 0.1);
   } else {
-    player.y = ( windowH * 0.9);
+    player.y = (windowH * 0.9);
   }
 
   createInitalGround(windowH - platformHeight, 'ground', 1);
