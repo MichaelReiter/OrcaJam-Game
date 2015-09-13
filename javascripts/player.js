@@ -182,7 +182,7 @@ function toGround() {
 
   ScoreTimer.delay = 10;
   platformGenTimer.delay = DELAY_CONSTANT * 0.43;   //platforms are created closed horizontally as this value decreases
-  groundGenTimer.delay = DELAY_CONSTANT * 0.5;
+  groundGenTimer.delay = DELAY_CONSTANT * 0.6;
 
   inTransition = false;
 }
