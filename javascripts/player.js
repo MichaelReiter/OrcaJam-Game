@@ -104,11 +104,6 @@ function toGround() {
   groundSprite = 'ground';
   platformSprite = 'ground';
 
-
-  platformsGroup.forEach(function(platform) {
-    platform.loadTexture('ground');
-  });
-
   ScoreTimer.delay = 10;
 
   platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
@@ -122,14 +117,20 @@ function toGround() {
   createPits = true;
   groundGenDelay = DELAY_CONSTANT * 0.5;
 
-  createInitalGround(  windowH - platformHeight );
-
   player.y = ( windowH * 0.75);
+
+  createInitalGround(windowH - platformHeight, 'ground', 1);
+
+  platformsGroup.forEach(function(platform) {
+    platform.loadTexture('ground');
+  });
+
+  groundGroup.forEach(function(ground) {
+    ground.loadTexture('ground');
+  });
 }
 
 function toHell() {
-
-  console.trace();
 
   inHeaven = false;
   groundLevel = false;
@@ -163,13 +164,16 @@ function toHell() {
 
   createPits = false;
   
-  createInitalGround( (windowH - ( windowH / 3 ) - 10), 'ground-hell');
-  createInitalGround(  (windowH - platformHeight), 'lava' );
-  
-  // platformsGroup = hellPlatforms = game.add.group();
-  // hellPlatforms.enableBody = true;
-  // game.physics.arcade.enable(hellPlatforms);
+  createInitalGround((windowH - ( windowH / 3 ) - 10), 'ground-hell', 1);
+  createInitalGround((windowH - platformHeight), 'lava', 1);
 
   player.y = 0;
 
+  platformsGroup.forEach(function(platform) {
+    platform.loadTexture('ground-hell');
+  });
+
+  groundGroup.forEach(function(ground) {
+    ground.loadTexture('lava');
+  });
 }
