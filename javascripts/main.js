@@ -30,7 +30,12 @@ function create() {
 }
 
 function update() {
-  changeNextPlatformTime(platformGenTimer);
+  if( !inTransition ) {
+    changeNextPlatformTime();
+  }
+  else {
+   console.log("in transition");
+ }
 
   game.physics.arcade.collide(initialGroundGroup, player);
   game.physics.arcade.collide( platformsGroup, player, placeHolder, playerVsPlatCollide );

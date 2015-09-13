@@ -1,10 +1,11 @@
-var scrollSpeed = 500;
+var scrollSpeed = 550;
 var windowH = window.innerHeight;
 var windowW = window.innerWidth;
 var score = 0;
 var groundLevel = true;
 var inHell = false;
 var inHeaven = false;
+var inTransition = false;
 
 function preload() {
   game.load.image('background', 'assets/background.png');
