@@ -107,6 +107,7 @@ function toHeaven() {
   platformWidth = 150;
   updateSpeed(800);
 
+
   //change future created platform sprites
   platformSprite = 'ground-heaven';
   groundSprite = 'ground-heaven';
@@ -160,6 +161,7 @@ function toGround() {
   biasTowardsBottomMultiplier = 2;
   biasTowardsTopMultiplier = 15;
 
+
   // platformGenDelayMultipler = 0.43;
   // groundGenDelayMultipler = 0.6;
   updateSpeed(400);
@@ -170,15 +172,6 @@ function toGround() {
   background.loadTexture('background');
   groundSprite = 'ground';
   platformSprite = 'ground';
-
-
-
-
-
-
-
-
-
 
   if (fallFromHeaven) {
     player.y = ( windowH * 0.1);
@@ -211,6 +204,7 @@ function toHell() {
   platformFloorOffset = ( windowH * 0.33 ); //this is the distance between the bottom of the game and the lowest platform
   biasTowardsBottomMultiplier = 4;
   biasTowardsTopMultiplier = 4;
+
 
   // platformGenDelayMultipler = 0.25;
   // groundGenDelayMultipler = 0.01;

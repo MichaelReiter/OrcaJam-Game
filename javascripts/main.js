@@ -43,32 +43,32 @@ function update() {
   // enablePauseGame();
   
 
-  destroyOldGround();
-  destroyOldPlatforms();
+  // destroyOldGround();
+  // destroyOldPlatforms();
   
   if( groundLevel ) {
-    console.log("in ground");
-    groundGenUpdateCount = 50;
-    platformGenUpdateCount = 50;
+    // console.log("in ground");
+    // groundGenUpdateCount = 50;
+    platformGenUpdateCount = 35;
   }
 
   if( inHell ) {
-    groundGenUpdateCount = 5;
-    platformGenUpdateCount = 80;
+    // groundGenUpdateCount = 5;
+    platformGenUpdateCount = 40;
   }
 
 
   if( inHeaven ) {
-    groundGenUpdateCount = 1;
-    platformGenUpdateCount = 30;
+    // groundGenUpdateCount = 1;
+    platformGenUpdateCount = 25;
   }
 
   updateCounter++;
 
-  if( updateCounter % groundGenUpdateCount == 0 ) {
-    console.log("creating ground");
-      createGround();
-  }
+  // if( updateCounter % groundGenUpdateCount == 0 ) {
+  //   console.log("creating ground");
+  //     createGround();
+  // }
 
   if( updateCounter % platformGenUpdateCount == 0 ) {
       createPlatform();

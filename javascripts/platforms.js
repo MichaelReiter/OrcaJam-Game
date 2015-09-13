@@ -33,19 +33,21 @@ function createPlatform() {
   // -------- bottom of game------------------
   while (true) {
 
-    var bias = ( player.position.y / windowH );
-
-    // flipping percentage value so bias is not oppisite to where player is
-    bias = ( 1 - bias );
-    // expanding bias by 2 to create 
-    bias *= 2;
-
+    // var bias = ( player.y / windowH );
+    // var bias;
+    // // flipping percentage value so bias is not oppisite to where player is
+    // bias = ( 1 - bias );
+    // // expanding bias by 2 to create 
+    // bias *= 2;
+    // // var bias = 0.5;
     // if ( bias > 1 ) {
     //   bias *=  biasTowardsBottomMultiplier;
     // }
     // else {
     //   bias /= biasTowardsTopMultiplier;
     // }
+
+    var bias = 5;
 
     var randBiased = Math.pow(Math.random(), bias);
 
@@ -61,7 +63,7 @@ function createPlatform() {
     }
   }
 
-  var ledge = platformsGroup.create(game.world.width, platYPos, platformSprite);
+  var ledge = platformsGroup.create(windowW, platYPos, platformSprite);
 
   ledge.body.velocity.x = -scrollSpeed;
   ledge.body.immovable = true;

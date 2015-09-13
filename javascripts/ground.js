@@ -19,6 +19,7 @@ function createGround() {
 	// 0 and 1. if the random number generated is less than the pitGenChance number, a pit is generated
 	// the higher the pitGenCHance number becomes, the greater the chance of the random number being less than it becomes, and a pit
 	// is more likely to be generated
+	console.log("creating ground");
 
   if ( createPits && !prevGeneratedPit  ) {
   		if ( Math.random() < ( pitGenChance / 10 ) ) {
