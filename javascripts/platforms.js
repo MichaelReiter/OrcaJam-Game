@@ -7,6 +7,7 @@ var platformFloorOffset = ( windowH * 0.12 ); //this is the distance between the
 var biasTowardsBottomMultiplier = 3;
 var biasTowardsTopMultiplier = 15;
 var platformWidth = 200;
+var platformSprite = 'ground';
 
 function initializePlatformGroup() {
   platformsGroup = game.add.group();
@@ -61,7 +62,7 @@ function createPlatform() {
     }
   }
 
-  var ledge = platformsGroup.create( game.world.width, platYPos, groundSprite );
+  var ledge = platformsGroup.create( game.world.width, platYPos, platformSprite );
 
   ledge.body.velocity.x = -scrollSpeed;
   ledge.body.immovable = true;

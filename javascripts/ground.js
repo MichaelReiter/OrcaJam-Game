@@ -19,7 +19,7 @@ function createGround() {
 	// 0 and 1. if the random number generated is less than the pitGenChance number, a pit is generated
 	// the higher the pitGenCHance number becomes, the greater the chance of the random number being less than it becomes, and a pit
 	// is more likely to be generated
-	if(createPits) {
+	if (createPits) {
 		if ( Math.random() < ( pitGenChance / 10 ) && !prevGeneratedPit ) {
 			prevGeneratedPit = true;
 			return ;
@@ -34,9 +34,9 @@ function createGround() {
   groundInstance.width *= 0.5;
 }
 
-function createInitalGround(groundStartHeight) {
-  var initialGroundInstance = initialGroundGroup.create(0, groundStartHeight, groundSprite);
-  initialGroundInstance.width = game.world.width * 1.3;
+function createInitalGround(groundStartHeight, sprite) {
+  var initialGroundInstance = initialGroundGroup.create(0, groundStartHeight, sprite);
+  initialGroundInstance.width = game.world.width * 1.1;
   initialGroundInstance.body.velocity.x = -scrollSpeed;
   initialGroundInstance.body.immovable = true;
 }

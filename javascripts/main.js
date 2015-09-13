@@ -22,7 +22,7 @@ function create() {
   startGroundGeneration();
   startScoreCounting();
   
-  createInitalGround(windowH - platformHeight);
+  createInitalGround((windowH - platformHeight), platformSprite);
 
   createPlayer();
 }

@@ -34,12 +34,6 @@ function enablePlayerJump() {
     midJump = true;
   }
 
-  if ( !jumpKey.isDown && midJump == true )
-    if ( player.body.velocity < 0 ) {
-      console.log("here");
-      player.body.velocity.y = 0;
-    }
-
   if (jumpKey.isDown && midJump == false) {
     midJump = true;
     player.body.velocity.x = 0;
@@ -83,31 +77,19 @@ function toHeaven() {
 function toGround() {
   background.loadTexture('background');
   groundSprite = 'ground';
-
-  ScoreTimer.delay(10);
+  platformSprite = 'ground';
 
   platformsGroup.forEach(function(platform) {
     platform.loadTexture('ground');
   });
-
-  platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
-  platformFloorOffset = ( windowH * 0.12 ); //this is the distance between the bottom of the game and the lowest platform
-  biasTowardsBottomMultiplier = 3;
-  biasTowardsTopMultiplier = 15;
-
-  platformWidth = 200;
-  platformGenDelay = DELAY_CONSTANT * 0.43;   //platforms are created closed horizontally as this value decreases
-
-  createPits = true;
-  groundGenDelay = DELAY_CONSTANT * 0.5;
-
 }
 
 function toHell() {
   inHeaven = false;
   groundLevel = false;
   inHell = true;
-  groundSprite = 'ground-hell';
+  platformSprite = 'ground-hell';
+  groundSprite = 'lava';
 
   ScoreTimer.delay = 100;
 
@@ -129,8 +111,8 @@ function toHell() {
   createPits = false;
   groundGenDelay = 0;
   
-  createInitalGround( windowH - ( windowH / 3 ) );
-  createInitalGround(  windowH - platformHeight );
+  createInitalGround( (windowH - ( windowH / 3 ) - 10), 'ground-hell');
+  createInitalGround(  (windowH - platformHeight), 'lava' );
   
   platformsGroup = hellPlatforms = game.add.group();
   hellPlatforms.enableBody = true;
