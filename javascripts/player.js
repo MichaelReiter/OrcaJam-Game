@@ -67,38 +67,29 @@ function enableZoneChange() {
 }
 
 function toHell() {
+
   inHeaven = false;
   groundLevel = false;
   inHell = true;
-
-  curZone = "hell";
+  groundSprite = 'ground-hell';
 
   //destroy all platforms
   platformsGroup.forEach(function(obj) {
     obj.kill();
   });
 
-  background = game.add.sprite(0, 0, 'background-hell');
-  background.height = game.height;
-  background.width = game.width;
+  background.loadTexture('background-hell')
 
   createInitalGround( windowH - ( windowH / 3 ) );
-  
-  groundSprite = 'ground-hell';
   
   platformsGroup = hellPlatforms = game.add.group();
   hellPlatforms.enableBody = true;
   game.physics.arcade.enable(hellPlatforms);
 
-  groundGroup = hellGround = game.add.group();
-  hellGround.enableBody = true;
-  game.physics.arcade.enable(hellGround);
-
   player.y = 0;
-  player.bringToTop();
 
   platformsGroup.forEach(function(platform) {
-    platform.bringToTop();
+    platform.loadTexture('ground-hell');
   });
 
 }

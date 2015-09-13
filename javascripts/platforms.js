@@ -8,10 +8,9 @@ var biasTowardsBottomMultiplier = 3;
 var biasTowardsTopMultiplier = 10;
 
 function initializePlatformGroup() {
-  groundLevelPlatforms = game.add.group();
-  groundLevelPlatforms.enableBody = true;
-  game.physics.arcade.enable(groundLevelPlatforms);
-  platformsGroup = groundLevelPlatforms;
+  platformsGroup = game.add.group();
+  platformsGroup.enableBody = true;
+  game.physics.arcade.enable(platformsGroup);
 }
 
 function createPlatform() {
@@ -80,7 +79,10 @@ function destroyOldPlatforms() {
 }
 
 function playerVsPlatCollide() {
-  if( player.body.velocity.y > 0 )
+  if (player.body.velocity.y > 0) {
     return true;
-  else return false;
+  }
+  else {
+    return false;
+  }
 }

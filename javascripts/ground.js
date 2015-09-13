@@ -3,11 +3,10 @@ var prevGeneratedPit = false;
 var groundSprite = 'ground';
 
 function initializeGroundGroups() {
-	groundLevelGroundGroup = game.add.group();
-  groundLevelGroundGroup.enableBody = true;
-  game.physics.arcade.enableBody(groundLevelGroundGroup);
-  groundGroup = groundLevelGroundGroup;
- 
+	groundGroup = game.add.group();
+  groundGroup.enableBody = true;
+  game.physics.arcade.enableBody(groundGroup);
+
   initialGroundGroup = game.add.group();
   initialGroundGroup.enableBody = true;
   game.physics.arcade.enableBody(initialGroundGroup);
