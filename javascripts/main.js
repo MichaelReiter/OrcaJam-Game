@@ -21,14 +21,12 @@ function create() {
 
   startPlatformGeneration();
   startGroundGeneration();
-  updateSpeed(800);
+  updateSpeed(400);
   createPlayer();
   createInitalGround((windowH - platformHeight), 'ground', 1);
   startScoreCounting();
-  
 
   toGround();
-
 }
 
 function update() {

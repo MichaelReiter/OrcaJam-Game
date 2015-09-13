@@ -78,3 +78,13 @@ function destroyOldPlatforms() {
     }
   });
 }
+
+function killPlatformsAndGround() {
+  platformsGroup.forEach(function(platform) {
+    platform.kill();
+  });
+
+  groundGroup.forEach(function(ground) {
+    ground.kill();
+  });
+}
