@@ -56,3 +56,12 @@ function createPlatform() {
 
   prevPlatYPos = platYPos;
 }
+
+function destroyOldPlatforms() {
+  //get rid of old platforms once they goes offscreen
+  platformsGroup.forEach(function(platform) {
+    if (platform.x < -platform.width) {
+      platform.kill();
+    }
+  });
+}

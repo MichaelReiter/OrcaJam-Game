@@ -64,6 +64,18 @@ function enableZoneChange() {
 
 function toHell() {
 
+  //destroy all platforms
+  platformsGroup.forEach(function(obj) {
+    obj.kill();
+  });
+
+  background = game.add.sprite(0, 0, 'background-hell');
+  background.height = game.height;
+  background.width = game.width;
+  
+  player.y = 0;
+  player.bringToTop();
+
 }
 
 function toHeaven() {

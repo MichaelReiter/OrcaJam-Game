@@ -41,6 +41,10 @@ function createInitalGround() {
 }
 
 function destroyOldGround() {
-
   //get rid of old ground once it goes offscreen
+  groundGroup.forEach(function(ground) {
+    if (ground.x < -ground.width) {
+      ground.kill();
+    }
+  });
 }
