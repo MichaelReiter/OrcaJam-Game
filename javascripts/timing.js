@@ -9,8 +9,9 @@ function updateSpeed(speed) {
 	DELAY_CONSTANT = ( 300000 / speed );
  	groundGenDelay = DELAY_CONSTANT * groundGenDelayMultipler;
 	platformGenDelay = DELAY_CONSTANT * platformGenDelayMultipler;   //platforms are created closed horizontally as this value decreases
-  platformGenTimer.delay = platformGenDelay;
-  groundGenTimer.delay = groundGenDelay;
+  platformGenTimer = game.time.events.loop(platformGenDelay, createPlatform, this);
+  groundGenTimer = game.time.events.loop(groundGenDelay, createGround, this);
+  // groundGenTimer.delay = groundGenDelay;
 	scrollSpeed = speed;
 }
 
