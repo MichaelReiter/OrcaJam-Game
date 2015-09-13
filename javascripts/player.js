@@ -85,6 +85,9 @@ function toHell() {
   biasTowardsBottomMultiplier = 4;
   biasTowardsTopMultiplier = 8;
 
+  platformWidth = 150;
+  platformGenDelay = DELAY_CONSTANT * 0.3;
+
   createPits = false;
   groundGenDelay = 0;
 

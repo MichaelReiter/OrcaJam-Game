@@ -6,6 +6,7 @@ var platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between t
 var platformFloorOffset = ( windowH * 0.16 ); //this is the distance between the bottom of the game and the lowest platform
 var biasTowardsBottomMultiplier = 3;
 var biasTowardsTopMultiplier = 15;
+var platformWidth = 200;
 
 function initializePlatformGroup() {
   platformsGroup = game.add.group();
@@ -49,7 +50,6 @@ function createPlatform() {
 
     var randBiased = Math.pow( Math.random(), bias );
 
-
     var platYPos =  platformCeilingOffset + ( randBiased * ( game.height - platformCeilingOffset - platformFloorOffset ) );
     var temp1 = Math.abs(platYPos);
     var temp2 = Math.abs(prevPlatYPos);
@@ -64,7 +64,7 @@ function createPlatform() {
 
   ledge.body.velocity.x = -scrollSpeed;
   ledge.body.immovable = true;
-  ledge.width = 200;
+  ledge.width = platformWidth;
 
   prevPlatYPos = platYPos;
 }
