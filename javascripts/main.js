@@ -38,7 +38,7 @@ function update() {
 
   game.physics.arcade.collide(initialGroundGroup, player);
   game.physics.arcade.collide(groundGroup, player);
-  game.physics.arcade.collide(platformsGroup, player);
+  game.physics.arcade.collide( platformsGroup, player, placeHolder , playerVsPlatCollide );
 
   enablePlayerJump();
   enableZoneChange();
