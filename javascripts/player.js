@@ -65,6 +65,12 @@ function accelerateToRunningPosition() {
   }
 }
 
+function enablePlayerDeathByLeftBoundary() {
+  if (player.x < 0) {
+    restartGame();
+  }
+}
+
 function enableZoneChange() {
   if (player.y > windowH) {
     if( groundLevel ) {
@@ -138,6 +144,7 @@ function toHell() {
   groundLevel = false;
   inHell = true;
 
+  //change future created platform sprites
   platformSprite = 'ground-hell';
   groundSprite = 'lava';
 
@@ -151,12 +158,6 @@ function toHell() {
     obj.kill();
   });
 
-  platformsGroup.forEach(function(platform) {
-    platform.loadTexture('ground-hell');
-  });
-  
-  background.loadTexture('background-hell');
-
   platformCeilingOffset = ( windowH * 0.10 ); //this is the distance between the height of the game and the tallest platform
   platformFloorOffset = ( windowH * 0.33 ); //this is the distance between the bottom of the game and the lowest platform
   biasTowardsBottomMultiplier = 4;
@@ -167,10 +168,13 @@ function toHell() {
   createPits = false;
   
   createInitalGround((windowH - ( windowH / 3 ) - 10), 'ground-hell', 1);
-  createInitalGround((windowH - platformHeight), 'lava', 1);
+  createInitalGround((windowH - platformHeight), 'lava', 1.2);
 
   player.y = 0;
 
+  background.loadTexture('background-hell');
+
+  //change existing ground to be hell sprite
   platformsGroup.forEach(function(platform) {
     platform.loadTexture('ground-hell');
   });

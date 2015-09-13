@@ -36,6 +36,7 @@ function update() {
 
   enablePlayerJump();
   enableZoneChange();
+  enablePlayerDeathByLeftBoundary();
   // enablePauseGame();
 
   destroyOldGround();

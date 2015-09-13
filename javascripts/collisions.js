@@ -13,9 +13,7 @@ function playerVsPlatCollide() {
 
 function playerVsGroundCollide() {
 	if (inHell) {
-		player.kill();
     restartGame();
-    toGround();
 		return false;
 	}
 	else {
@@ -28,7 +26,9 @@ function restartGame() {
   inHeaven = false;
   groundLevel = true;
   inHell = false;
-  midJump = false
-  
+  midJump = false;
+
+  player.kill();
   createPlayer();
+  toGround();
 }
