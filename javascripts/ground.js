@@ -3,7 +3,7 @@ var prevGeneratedPit = false;
 var groundSprite = 'ground';
 var createPits = true;
 
-function initializeGroundGroups() {
+function initializeGroundGroup() {
 	groundGroup = game.add.group();
   groundGroup.enableBody = true;
   game.physics.arcade.enableBody(groundGroup);
@@ -19,26 +19,24 @@ function createGround() {
 	// 0 and 1. if the random number generated is less than the pitGenChance number, a pit is generated
 	// the higher the pitGenCHance number becomes, the greater the chance of the random number being less than it becomes, and a pit
 	// is more likely to be generated
-	if (createPits) {
-		if ( Math.random() < ( pitGenChance / 10 ) && !prevGeneratedPit ) {
-			prevGeneratedPit = true;
-			return ;
-		}
-	}
 
-	prevGeneratedPit = false;
-
-  if (!inHeaven) {
-    var groundInstance = groundGroup.create( game.world.width, game.world.height - platformHeight, groundSprite);
+  if ( createPits && !prevGeneratedPit  ) {
+  		if ( Math.random() < ( pitGenChance / 10 ) ) {
+  			prevGeneratedPit = true;
+  		}
+  } else if( true ) {
+    var groundInstance = groundGroup.create( windowW, windowH - platformHeight, groundSprite);
     groundInstance.body.velocity.x = -scrollSpeed;
     groundInstance.body.immovable = true;
-    groundInstance.width *= 0.5;
+    groundInstance.width = 200;  
+  	prevGeneratedPit = false;
   }
+
 }
 
 function createInitalGround(groundStartHeight, sprite, multiplier) {
   var initialGroundInstance = initialGroundGroup.create(0, groundStartHeight, sprite);
-  initialGroundInstance.width = game.world.width * multiplier;
+  initialGroundInstance.width = windowW * multiplier;
   initialGroundInstance.body.velocity.x = -scrollSpeed;
   initialGroundInstance.body.immovable = true;
 }
