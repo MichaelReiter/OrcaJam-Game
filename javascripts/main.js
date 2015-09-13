@@ -23,8 +23,9 @@ function create() {
   startScoreCounting();
   
   createInitalGround((windowH - platformHeight), platformSprite);
-
   createPlayer();
+
+  toGround();
 }
 
 function update() {

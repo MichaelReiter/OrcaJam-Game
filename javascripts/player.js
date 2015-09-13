@@ -123,9 +123,13 @@ function toGround() {
   groundGenDelay = DELAY_CONSTANT * 0.5;
 
   createInitalGround(  windowH - platformHeight );
+
+  player.y = ( windowH * 0.75);
 }
 
 function toHell() {
+
+  console.trace();
 
   inHeaven = false;
   groundLevel = false;

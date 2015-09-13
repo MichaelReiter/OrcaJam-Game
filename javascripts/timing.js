@@ -4,6 +4,7 @@ var platformGenDelay = DELAY_CONSTANT * 0.43;   //platforms are created closed h
 var platformGenRandomnessMultipler = 2.5;
 var scoreUpdateRate = 10; // milliseconds
 
+
 function startPlatformGeneration() {
   // 0 is passed to start generation with game start
   platformGenTimer = game.time.events.loop(0, createPlatform, this);
