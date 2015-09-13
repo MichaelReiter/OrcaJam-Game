@@ -110,10 +110,10 @@ function toHeaven() {
   groundSprite = 'ground-heaven';
 
   // update timer speed for enviroment generation and score
-  platformCeilingOffset = ( windowH * 0.10 ); //this is the distance between the height of the game and the tallest platform
-  platformFloorOffset = ( windowH * 0.33 ); //this is the distance between the bottom of the game and the lowest platform
-  biasTowardsBottomMultiplier = 4;
-  biasTowardsTopMultiplier = 8;
+  platformCeilingOffset = ( windowH * 0.3 ); //this is the distance between the height of the game and the tallest platform
+  platformFloorOffset = ( windowH * 0.05 ); //this is the distance between the bottom of the game and the lowest platform
+  biasTowardsBottomMultiplier = 10000;
+  biasTowardsTopMultiplier = 1;
 
   platformGenDelayMultipler = 0.6;
   groundGenDelayMultipler = 0;
@@ -123,13 +123,14 @@ function toHeaven() {
     obj.kill();
   });
 
-  createHeightedPlatform( (windowH / 1.8), ( windowW + 200) );
+  createHeightedPlatform( windowH - (windowH / 4.2), windowW, (windowW /2)  );
 
   createPits = false;
   
-  createInitalGround((windowH - ( windowH / 3 ) - 10), 'ground-heaven', 1);
+  createInitalGround( windowH - ( windowH / 20 ) , 'ground-heaven', 1);
 
-  player.y = ( windowH / 3 ) ;
+  player.y = windowH - (windowH / 10) ;
+  // player.body.velocity.y = -1000;
 
   background.loadTexture('background-heaven');
 
@@ -153,8 +154,8 @@ function toGround() {
 
   platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
   platformFloorOffset = ( windowH * 0.12 ); //this is the distance between the bottom of the game and the lowest platform
-  biasTowardsBottomMultiplier = 1;
-  biasTowardsTopMultiplier = 5;
+  biasTowardsBottomMultiplier = 2;
+  biasTowardsTopMultiplier = 15;
 
   platformGenDelayMultipler = 0.43;
   groundGenDelayMultipler = 0.6;
@@ -214,7 +215,7 @@ function toHell() {
     obj.kill();
   });
 
-  createHeightedPlatform( (windowH / 1.8), windowW + 100);
+  // createHeightedPlatform( (windowH / 1.8), windowW + 100, window);
 
 
   createPits = false;
