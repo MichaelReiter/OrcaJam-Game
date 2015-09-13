@@ -70,7 +70,7 @@ function createPlatform() {
   prevPlatYPos = platYPos;
 }
 
-function createHeightedPlatform(height) {
+function createHeightedPlatform(height, xPos) {
   var ledge = platformsGroup.create(game.world.width, height, platformSprite);
   ledge.body.velocity.x = -scrollSpeed;
   ledge.body.immovable = true;

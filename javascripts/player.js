@@ -110,25 +110,29 @@ function toHeaven() {
   groundSprite = 'ground-heaven';
 
   // update timer speed for enviroment generation and score
-  ScoreTimer.delay = 10;
-  platformGenDelay = DELAY_CONSTANT * 0.5;
-  groundGenDelay = 0;
+  platformCeilingOffset = ( windowH * 0.10 ); //this is the distance between the height of the game and the tallest platform
+  platformFloorOffset = ( windowH * 0.33 ); //this is the distance between the bottom of the game and the lowest platform
+  biasTowardsBottomMultiplier = 4;
+  biasTowardsTopMultiplier = 8;
+
+  platformGenDelayMultipler = 0.75;
+  groundGenDelayMultipler = 0;
+  updateSpeed(scrollSpeed*2);
 
   //destroy all platforms
   platformsGroup.forEach(function(obj) {
     obj.kill();
   });
 
-  platformCeilingOffset = ( windowH * 0.10 ); //this is the distance between the height of the game and the tallest platform
-  platformFloorOffset = ( windowH * 0.33 ); //this is the distance between the bottom of the game and the lowest platform
-  biasTowardsBottomMultiplier = 4;
-  biasTowardsTopMultiplier = 8;
+  createHeightedPlatform( (windowH / 2.2), ( windowW + 200) );
+
+  platformWidth = 300;
 
   createPits = false;
   
   createInitalGround((windowH - ( windowH / 3 ) - 10), 'ground-heaven', 1);
 
-  player.y = 0;
+  player.y = ( windowH / 3 ) ;
 
   background.loadTexture('background-heaven');
 
@@ -150,6 +154,11 @@ function toGround() {
   groundLevel = true;
   inHell = false;
 
+  platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
+  platformFloorOffset = ( windowH * 0.12 ); //this is the distance between the bottom of the game and the lowest platform
+  biasTowardsBottomMultiplier = 1;
+  biasTowardsTopMultiplier = 5;
+
   platformGenDelayMultipler = 0.43;
   groundGenDelayMultipler = 0.6;
   updateSpeed(400);
@@ -160,11 +169,6 @@ function toGround() {
   background.loadTexture('background');
   groundSprite = 'ground';
   platformSprite = 'ground';
-
-  platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
-  platformFloorOffset = ( windowH * 0.12 ); //this is the distance between the bottom of the game and the lowest platform
-  biasTowardsBottomMultiplier = 3;
-  biasTowardsTopMultiplier = 20;
 
   createPits = true;
 
@@ -191,6 +195,11 @@ function toHell() {
   groundLevel = false;
   inHell = true;
 
+  platformCeilingOffset = ( windowH * 0.10 ); //this is the distance between the height of the game and the tallest platform
+  platformFloorOffset = ( windowH * 0.33 ); //this is the distance between the bottom of the game and the lowest platform
+  biasTowardsBottomMultiplier = 4;
+  biasTowardsTopMultiplier = 4;
+
   platformGenDelayMultipler = 0.3;
   groundGenDelayMultipler = 0.01;
   updateSpeed(300);
@@ -208,12 +217,8 @@ function toHell() {
     obj.kill();
   });
 
-  createHeightedPlatform(windowH / 1.8);
+  createHeightedPlatform( (windowH / 1.8), windowW + 100);
 
-  platformCeilingOffset = ( windowH * 0.10 ); //this is the distance between the height of the game and the tallest platform
-  platformFloorOffset = ( windowH * 0.33 ); //this is the distance between the bottom of the game and the lowest platform
-  biasTowardsBottomMultiplier = 4;
-  biasTowardsTopMultiplier = 4;
 
   createPits = false;
   
