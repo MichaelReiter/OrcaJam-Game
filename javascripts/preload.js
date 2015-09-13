@@ -16,7 +16,3 @@ function preload() {
   game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
 
 }
-
-function placeHolder() {
-
-}
