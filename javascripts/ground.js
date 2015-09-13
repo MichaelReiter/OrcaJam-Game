@@ -28,10 +28,12 @@ function createGround() {
 
 	prevGeneratedPit = false;
 
-  var groundInstance = groundGroup.create( game.world.width, game.world.height - platformHeight, groundSprite);
-  groundInstance.body.velocity.x = -scrollSpeed;
-  groundInstance.body.immovable = true;
-  groundInstance.width *= 0.5;
+  if (!inHeaven) {
+    var groundInstance = groundGroup.create( game.world.width, game.world.height - platformHeight, groundSprite);
+    groundInstance.body.velocity.x = -scrollSpeed;
+    groundInstance.body.immovable = true;
+    groundInstance.width *= 0.5;
+  }
 }
 
 function createInitalGround(groundStartHeight, sprite, multiplier) {

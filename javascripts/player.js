@@ -73,38 +73,82 @@ function enablePlayerDeathByLeftBoundary() {
 
 function enableZoneChange() {
   if (player.y > windowH) {
-    if( groundLevel ) {
-      console.log("going to hell");
+    if(groundLevel) {
       toHell();
     }
-    else if ( inHell ) {
+    else if (inHell) {
       // do nothing
     }
-    else if ( inHeaven ) {
+    else if (inHeaven) {
       toGround();
     }
   }
   if (player.y < 0) {
-    if( groundLevel ) {
+    if(groundLevel) {
       toHeaven();
     }
-    else if ( inHell ) {
+    else if (inHell) {
       toGround()
     }
-    else if ( inHeaven ) {
+    else if (inHeaven) {
       // do nothing
     }
   }
 }
 
 function toHeaven() {
-// 
+  inHeaven = true;
+  groundLevel = false;
+  inHell = false;
+
+  //change future created platform sprites
+  platformSprite = 'ground-heaven';
+  groundSprite = 'ground-heaven';
+
+  // update timer speed for enviroment generation and score
+  ScoreTimer.delay = 10;
+  platformGenDelay = DELAY_CONSTANT * 0.75;
+  groundGenDelay = 0;
+
+  //destroy all platforms
+  platformsGroup.forEach(function(obj) {
+    obj.kill();
+  });
+
+  platformCeilingOffset = ( windowH * 0.10 ); //this is the distance between the height of the game and the tallest platform
+  platformFloorOffset = ( windowH * 0.33 ); //this is the distance between the bottom of the game and the lowest platform
+  biasTowardsBottomMultiplier = 4;
+  biasTowardsTopMultiplier = 8;
+
+  platformWidth = 300;
+
+  player.gravity /= 3;
+  scrollSpeed *= 2;
+
+  createPits = false;
+  
+  createInitalGround((windowH - ( windowH / 3 ) - 10), 'ground-heaven', 1);
+
+  player.y = 0;
+
+  background.loadTexture('background-heaven');
+
+  //change existing ground to be hell sprite
+  platformsGroup.forEach(function(platform) {
+    platform.loadTexture('ground-heaven');
+  });
+
+  groundGroup.forEach(function(ground) {
+    ground.kill();
+  });
 }
 
 function toGround() {
   inHeaven = false;
   groundLevel = true;
   inHell = false;
+
+  scrollSpeed = 700;
 
   background.loadTexture('background');
   groundSprite = 'ground';
@@ -141,6 +185,8 @@ function toHell() {
   inHeaven = false;
   groundLevel = false;
   inHell = true;
+
+  scrollSpeed = 500;
 
   //change future created platform sprites
   platformSprite = 'ground-hell';
