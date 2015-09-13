@@ -29,6 +29,6 @@ function restartGame() {
   groundLevel = true;
   inHell = false;
   midJump = false
-
+  
   createPlayer();
 }

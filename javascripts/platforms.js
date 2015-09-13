@@ -15,7 +15,6 @@ function initializePlatformGroup() {
 }
 
 function createPlatform() {
-
   // visual of platYPos is generated
   // 
   // -------- top of game ----------- 
@@ -48,16 +47,18 @@ function createPlatform() {
     //   bias /= biasTowardsTopMultiplier;
     // }
 
-    var randBiased = Math.pow( Math.random(), bias );
+    var randBiased = Math.pow(Math.random(), bias);
 
     var platYPos =  platformCeilingOffset + ( randBiased * ( game.height - platformCeilingOffset - platformFloorOffset ) );
     var temp1 = Math.abs(platYPos);
     var temp2 = Math.abs(prevPlatYPos);
     var diffFromPrevPos = Math.abs( temp1 - temp2 );
 
-    if ( diffFromPrevPos > minPlatformYDist )
-      if ( diffFromPrevPos < maxPlatformYDist )
+    if ( diffFromPrevPos > minPlatformYDist ) {
+      if ( diffFromPrevPos < maxPlatformYDist ) {
         break;
+      }
+    }
   }
 
   var ledge = platformsGroup.create( game.world.width, platYPos, groundSprite );
@@ -77,5 +78,3 @@ function destroyOldPlatforms() {
     }
   });
 }
-
-

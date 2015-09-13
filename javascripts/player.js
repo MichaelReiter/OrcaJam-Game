@@ -2,7 +2,6 @@ var player = game.add.sprite(0, game.world.height - 150, 'dude');
 var midJump = false;
 
 function createPlayer() {
-
   desiredXPosition = windowW/3;
 
   // The player and its settings
@@ -19,11 +18,9 @@ function createPlayer() {
 
   player.animations.add('running', [5, 6, 7, 8], 10, true);
   player.animations.play('running');
-
 }
 
 function enablePlayerJump() {
-
   var jumpKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
   if (player.body.touching.down) {
@@ -45,7 +42,6 @@ function enablePlayerJump() {
 }
 
 function accelerateToRunningPosition() {
-
   platformsGroup.forEach(function(platform) {
     platform.bringToTop();
   });
@@ -67,7 +63,6 @@ function enableZoneChange() {
 }
 
 function toHeaven() {
-
   inHeaven = true;
   groundLevel = false;
   inHell = false;
@@ -77,7 +72,6 @@ function toHeaven() {
     create: create,
     update: update
   });
-
 }
 
 function toGround() {
@@ -90,7 +84,6 @@ function toGround() {
 }
 
 function toHell() {
-
   inHeaven = false;
   groundLevel = false;
   inHell = true;
@@ -128,5 +121,4 @@ function toHell() {
   platformsGroup.forEach(function(platform) {
     platform.loadTexture('ground-hell');
   });
-
 }

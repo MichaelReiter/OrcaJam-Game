@@ -9,7 +9,6 @@ var scoreLabel, background;
 preload();
 
 function create() {
-
   game.physics.startSystem(Phaser.Physics.ARCADE);
 
   background = game.add.sprite(0, 0, 'background');
@@ -26,11 +25,9 @@ function create() {
   createInitalGround(windowH - platformHeight);
 
   createPlayer();
-
 }
 
 function update() {
-
   changeNextPlatformTime(platformGenTimer);
 
   game.physics.arcade.collide(initialGroundGroup, player);
@@ -39,7 +36,7 @@ function update() {
 
   enablePlayerJump();
   enableZoneChange();
-  enablePauseGame();
+  // enablePauseGame();
 
   destroyOldGround();
   destroyOldPlatforms();
