@@ -22,7 +22,7 @@ function create() {
   startPlatformGeneration();
   startGroundGeneration();
   
-  createInitalGround();
+  createInitalGround(windowH - platformHeight);
 
   createPlayer();
 

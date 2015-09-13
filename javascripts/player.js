@@ -74,6 +74,8 @@ function toHell() {
   background = game.add.sprite(0, 0, 'background-hell');
   background.height = game.height;
   background.width = game.width;
+
+  createInitalGround( windowH - ( windowH / 3 ) );
   
   player.y = 0;
   player.bringToTop();
