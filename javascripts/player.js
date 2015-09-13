@@ -37,6 +37,10 @@ function enablePlayerJump() {
     midJump = true;
   }
 
+  if( !jumpKey.isDown && midJump == true && player.body.velocity < 0 ) {
+    player.body.velocity.y = 0;
+  }
+
   if (jumpKey.isDown && midJump == false) {
     midJump = true;
     player.body.velocity.x = 0;
