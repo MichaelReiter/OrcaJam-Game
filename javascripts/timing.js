@@ -1,7 +1,7 @@
 var DELAY_CONSTANT = ( 300000 / scrollSpeed );
 var groundGenDelay = DELAY_CONSTANT * 0.5;
 var platformGenDelay = DELAY_CONSTANT * 0.43;   //platforms are created closed horizontally as this value decreases
-var platformGenDistanceMultipler = 2.5;
+var platformGenRandomnessMultipler = 2.5;
 
 function startPlatformGeneration() {
 
