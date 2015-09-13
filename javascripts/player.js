@@ -84,7 +84,7 @@ function toGround() {
   background.loadTexture('background');
   groundSprite = 'ground';
 
-  ScoreTimer.delay(10);
+  ScoreTimer.delay = 10;
 
   platformsGroup.forEach(function(platform) {
     platform.loadTexture('ground');
@@ -100,6 +100,8 @@ function toGround() {
 
   createPits = true;
   groundGenDelay = DELAY_CONSTANT * 0.5;
+
+  createInitalGround(  windowH - platformHeight );
 
 }
 
