@@ -188,7 +188,7 @@ function toHell() {
   });
 
   ScoreTimer.delay = 100;
-  platformGenTimer.delay = DELAY_CONSTANT * 0.2;
+  platformGenTimer.delay = DELAY_CONSTANT * 0.1;
   groundGenTimer.delay = 0.01;
 
   inTransition = false;
