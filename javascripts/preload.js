@@ -6,6 +6,7 @@ var groundLevel = true;
 var inHell = false;
 var inHeaven = false;
 var inTransition = false;
+var updateCounter = 0;
 
 function preload() {
   game.load.image('background', 'assets/background.png');

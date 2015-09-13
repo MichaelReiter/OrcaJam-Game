@@ -1,4 +1,5 @@
 var player;
+var fallFromHeaven = false;
 
 function createPlayer() {
   desiredXPosition = windowW/3;
@@ -116,8 +117,8 @@ function toHeaven() {
   biasTowardsBottomMultiplier = 5;
   biasTowardsTopMultiplier = 1;
 
-  platformGenDelayMultipler = 0.6;
-  groundGenDelayMultipler = 0;
+  // platformGenDelayMultipler = 0.6;
+  // groundGenDelayMultipler = 0;
 
   //destroy all platforms
   platformsGroup.forEach(function(obj) {
@@ -148,6 +149,7 @@ function toHeaven() {
 }
 
 function toGround() {
+  createPits = true;
   inTransition = true;
   inHeaven = false;
   groundLevel = true;
@@ -158,8 +160,8 @@ function toGround() {
   biasTowardsBottomMultiplier = 2;
   biasTowardsTopMultiplier = 15;
 
-  platformGenDelayMultipler = 0.43;
-  groundGenDelayMultipler = 0.6;
+  // platformGenDelayMultipler = 0.43;
+  // groundGenDelayMultipler = 0.6;
   updateSpeed(400);
   platformWidth = 200;
 
@@ -169,7 +171,14 @@ function toGround() {
   groundSprite = 'ground';
   platformSprite = 'ground';
 
-  createPits = true;
+
+
+
+
+
+
+
+
 
   if (fallFromHeaven) {
     player.y = ( windowH * 0.1);
@@ -203,8 +212,8 @@ function toHell() {
   biasTowardsBottomMultiplier = 4;
   biasTowardsTopMultiplier = 4;
 
-  platformGenDelayMultipler = 0.25;
-  groundGenDelayMultipler = 0.01;
+  // platformGenDelayMultipler = 0.25;
+  // groundGenDelayMultipler = 0.01;
   updateSpeed(350);
   platformWidth = 100;
 

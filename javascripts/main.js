@@ -9,6 +9,7 @@ var scoreLabel, background;
 preload();
 
 function create() {
+
   game.physics.startSystem(Phaser.Physics.ARCADE);
 
   background = game.add.sprite(0, 0, 'background');
@@ -16,11 +17,11 @@ function create() {
   background.width = game.width;
 
 
-  initializeGroundGroups();
+  initializeGroundGroup();
   initializePlatformGroup();
 
-  startPlatformGeneration();
-  startGroundGeneration();
+  // startPlatformGeneration();
+  // startGroundGeneration();
   updateSpeed(400);
   createPlayer();
   createInitalGround((windowH - platformHeight), 'ground', 1);
@@ -31,6 +32,7 @@ function create() {
 
 function update() {
 
+
   game.physics.arcade.collide(initialGroundGroup, player);
   game.physics.arcade.collide( platformsGroup, player, placeHolder, playerVsPlatCollide );
   game.physics.arcade.collide(groundGroup, player, placeHolder, playerVsGroundCollide);
@@ -39,13 +41,37 @@ function update() {
   enableZoneChange();
   enablePlayerDeathByLeftBoundary();
   // enablePauseGame();
+  
 
-  if( !inTransition ) {
-    changeNextPlatformTime();
-    destroyOldGround();
-    destroyOldPlatforms();
+  destroyOldGround();
+  destroyOldPlatforms();
+  
+  if( groundLevel ) {
+    console.log("in ground");
+    groundGenUpdateCount = 50;
+    platformGenUpdateCount = 50;
   }
-  else {
-   console.log("in transition");
- }
+
+  if( inHell ) {
+    groundGenUpdateCount = 5;
+    platformGenUpdateCount = 80;
+  }
+
+
+  if( inHeaven ) {
+    groundGenUpdateCount = 1;
+    platformGenUpdateCount = 30;
+  }
+
+  updateCounter++;
+
+  if( updateCounter % groundGenUpdateCount == 0 ) {
+    console.log("creating ground");
+      createGround();
+  }
+
+  if( updateCounter % platformGenUpdateCount == 0 ) {
+      createPlatform();
+  }
+
 }
