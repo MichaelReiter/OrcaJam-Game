@@ -21,7 +21,7 @@ function create() {
 
   startPlatformGeneration();
   startGroundGeneration();
-  updateSpeed(800);
+  updateSpeed(500);
   createPlayer();
   createInitalGround((windowH - platformHeight), 'ground', 1);
   startScoreCounting();

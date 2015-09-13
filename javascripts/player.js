@@ -166,7 +166,7 @@ function toGround() {
   platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
   platformFloorOffset = ( windowH * 0.12 ); //this is the distance between the bottom of the game and the lowest platform
   biasTowardsBottomMultiplier = 3;
-  biasTowardsTopMultiplier = 15;
+  biasTowardsTopMultiplier = 20;
 
   platformWidth = 200;
 
@@ -210,10 +210,12 @@ function toHell() {
     obj.kill();
   });
 
+  createHeightedPlatform(windowH / 1.8);
+
   platformCeilingOffset = ( windowH * 0.10 ); //this is the distance between the height of the game and the tallest platform
   platformFloorOffset = ( windowH * 0.33 ); //this is the distance between the bottom of the game and the lowest platform
   biasTowardsBottomMultiplier = 4;
-  biasTowardsTopMultiplier = 8;
+  biasTowardsTopMultiplier = 4;
 
   platformWidth = 150;
 
