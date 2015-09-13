@@ -42,6 +42,7 @@ function update() {
 
   enablePlayerJump();
   enableZoneChange();
+  enablePauseGame();
 
   destroyOldGround();
   destroyOldPlatforms();
