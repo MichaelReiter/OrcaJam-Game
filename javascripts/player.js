@@ -80,6 +80,7 @@ function enableZoneChange() {
       // do nothing
     }
     else if (inHeaven) {
+      fallFromHeaven = true;
       toGround();
     }
   }
@@ -123,7 +124,7 @@ function toHeaven() {
     obj.kill();
   });
 
-  createHeightedPlatform( windowH - (windowH / 4.2), windowW, (windowW /2)  );
+  // createHeightedPlatform(windowH - (windowH / 4.2), windowW, (windowW /2));
 
   createPits = false;
   
@@ -170,7 +171,11 @@ function toGround() {
 
   createPits = true;
 
-  player.y = ( windowH * 0.1);
+  if (fallFromHeaven) {
+    player.y = ( windowH * 0.1);
+  } else {
+    player.y = ( windowH * 0.9);
+  }
 
   createInitalGround(windowH - platformHeight, 'ground', 1);
 
@@ -208,15 +213,10 @@ function toHell() {
   platformSprite = 'ground-hell';
   groundSprite = 'lava';
 
-  // update timer speed for enviroment generation and score
-
   //destroy all platforms
   platformsGroup.forEach(function(obj) {
     obj.kill();
   });
-
-  // createHeightedPlatform( (windowH / 1.8), windowW + 100, window);
-
 
   createPits = false;
   
