@@ -36,13 +36,6 @@ function createPlatform() {
     var temp2 = Math.abs(prevPlatYPos);
     var diffFromPrevPos = Math.abs( temp1 - temp2 );
 
-    console.log("temp1 "); 
-    console.log(temp1);
-    console.log("temp2 "); 
-    console.log(temp2);
-    console.log("diffFromPrevPos "); 
-    console.log(diffFromPrevPos);
-
     if( diffFromPrevPos > minPlatformYDist )
       if( diffFromPrevPos < maxPlatformYDist )
         break;
