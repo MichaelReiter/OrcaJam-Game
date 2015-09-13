@@ -35,8 +35,8 @@ function update() {
   changeNextPlatformTime(platformGenTimer);
 
   game.physics.arcade.collide(initialGroundGroup, player);
-  game.physics.arcade.collide(groundGroup, player);
-  game.physics.arcade.collide( platformsGroup, player, placeHolder , playerVsPlatCollide );
+  game.physics.arcade.collide(groundGroup, player, placeHolder, playerVsGroundCollide);
+  game.physics.arcade.collide( platformsGroup, player, playerVsPlatCollide );
 
   enablePlayerJump();
   enableZoneChange();

@@ -3,7 +3,7 @@ var prevPlatYPos = ( ( windowH / 16 ) * 3 );
 var minPlatformYDist = ( windowH / 16 );
 var maxPlatformYDist = ( ( windowH / 16 ) * 3 );
 var platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
-var platformFloorOffset = ( windowH * 0.16 ); //this is the distance between the bottom of the game and the lowest platform
+var platformFloorOffset = ( windowH * 0.12 ); //this is the distance between the bottom of the game and the lowest platform
 var biasTowardsBottomMultiplier = 3;
 var biasTowardsTopMultiplier = 15;
 var platformWidth = 200;
@@ -78,11 +78,4 @@ function destroyOldPlatforms() {
   });
 }
 
-function playerVsPlatCollide() {
-  if (player.body.velocity.y > 0) {
-    return true;
-  }
-  else {
-    return false;
-  }
-}
+
