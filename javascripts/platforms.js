@@ -2,7 +2,7 @@ var platformHeight = 32;
 var prevPlatYPos = ( ( windowH / 16 ) * 3 );
 var minPlatformYDist = ( windowH / 20 );
 var maxPlatformYDist = ( ( windowH / 16 ) * 3 );
-var platformCeilingOffset = ( windowH * 0.1 ); //this is the distance between the height of the game and the tallest platform
+var platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
 var platformFloorOffset = ( windowH * 0.15 ); //this is the distance between the bottom of the game and the lowest platform
 
 function initializePlatformGroup() {
