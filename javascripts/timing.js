@@ -4,7 +4,6 @@ var groundGenDelay;
 var groundGenDelayMultipler = 0.5;
 var platformGenDelayMultipler = 0.43;
 var platformGenRandomnessMultipler = 2.5;
-var scoreUpdateRate = 10; // milliseconds
 
 function updateSpeed(speed) {
 	DELAY_CONSTANT = ( 300000 / speed );
@@ -23,7 +22,7 @@ function startPlatformGeneration() {
 function startScoreCounting() {
 	score = 0;
 	scoreLabel = game.add.text(windowW/2, windowH/10, score, { font: 'bold 20pt Comic Sans MS', fill: '#ffffff' }); 
-	ScoreTimer = game.time.events.loop( scoreUpdateRate, updateScore, this );
+	ScoreTimer = game.time.events.loop( 10, updateScore, this );
 }
 
 function startGroundGeneration() {
