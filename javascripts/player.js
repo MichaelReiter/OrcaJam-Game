@@ -113,11 +113,18 @@ function toGround() {
   createPits = true;
   groundGenDelay = DELAY_CONSTANT * 0.5;
 
-  createInitalGround(  windowH - platformHeight );
+  createInitalGround(windowH - platformHeight, 'ground', 1);
+
+  platformsGroup.forEach(function(platform) {
+    platform.loadTexture('ground');
+  });
+
+  groundGroup.forEach(function(ground) {
+    ground.loadTexture('ground');
+  });
 }
 
 function toHell() {
-
   inHeaven = false;
   groundLevel = false;
   inHell = true;
@@ -145,16 +152,16 @@ function toHell() {
   createPits = false;
   groundGenDelay = 0;
   
-  createInitalGround( (windowH - ( windowH / 3 ) - 10), 'ground-hell');
-  createInitalGround(  (windowH - platformHeight), 'lava' );
-  
-  platformsGroup = hellPlatforms = game.add.group();
-  hellPlatforms.enableBody = true;
-  game.physics.arcade.enable(hellPlatforms);
+  createInitalGround((windowH - ( windowH / 3 ) - 10), 'ground-hell', 1);
+  createInitalGround((windowH - platformHeight), 'lava', 1);
 
   player.y = 0;
 
   platformsGroup.forEach(function(platform) {
     platform.loadTexture('ground-hell');
+  });
+
+  groundGroup.forEach(function(ground) {
+    ground.loadTexture('lava');
   });
 }
