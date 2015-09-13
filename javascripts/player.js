@@ -1,5 +1,4 @@
 var player;
-var midJump = false;
 
 function createPlayer() {
   desiredXPosition = windowW/3;
@@ -24,28 +23,31 @@ function enablePlayerJump() {
   var jumpKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
   var jumpCheatKey = game.input.keyboard.addKey(Phaser.Keyboard.C);
 
-  if (player.body.touching.down) {
-    midJump = false;
-    player.body.velocity.x = scrollSpeed;
-    accelerateToRunningPosition();
-  }
+  var midJump = true;
+  var jumpSpeed = -750;
 
   if (!player.body.touching.down) {
     player.body.velocity.x = 0;
     midJump = true;
   }
 
-  if ( !jumpKey.isDown && midJump == true )
-    if ( player.body.velocity < 0 ) {
-      console.log("here");
-      player.body.velocity.y = 0;
-    }
-
-  if (jumpKey.isDown && midJump == false) {
-    midJump = true;
-    player.body.velocity.x = 0;
-    player.body.velocity.y = -750;
+  if (player.body.touching.down) {
+    midJump = false;
+    player.body.velocity.x = scrollSpeed;
+    accelerateToRunningPosition();
   }
+
+  if ( jumpKey.isDown  ) {
+    if ( !midJump ) {
+      player.body.velocity.y = jumpSpeed;
+    }
+  }
+  else if ( midJump ) {
+    if( player.body.velocity.y < 0 ) {
+      player.body.velocity.y = 1;
+    }
+  }
+
 
   if( jumpCheatKey.isDown ) {
     player.body.velocity.y = -700;
@@ -67,6 +69,7 @@ function accelerateToRunningPosition() {
 function enableZoneChange() {
   if (player.y > windowH) {
     if( groundLevel ) {
+      console.log("going to hell");
       toHell();
     }
     else if ( inHell ) {
@@ -102,11 +105,12 @@ function toGround() {
   background.loadTexture('background');
   groundSprite = 'ground';
 
-  ScoreTimer.delay = 10;
 
   platformsGroup.forEach(function(platform) {
     platform.loadTexture('ground');
   });
+
+  ScoreTimer.delay = 10;
 
   platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
   platformFloorOffset = ( windowH * 0.12 ); //this is the distance between the bottom of the game and the lowest platform
@@ -131,13 +135,20 @@ function toHell() {
 
   groundSprite = 'ground-hell';
 
+  // update timer speed for enviroment generation and score
   ScoreTimer.delay = 100;
+  platformGenDelay = DELAY_CONSTANT * 0.3;
+  groundGenDelay = 0;
 
   //destroy all platforms
   platformsGroup.forEach(function(obj) {
     obj.kill();
   });
 
+  platformsGroup.forEach(function(platform) {
+    platform.loadTexture('ground-hell');
+  });
+  
   background.loadTexture('background-hell');
 
   platformCeilingOffset = ( windowH * 0.10 ); //this is the distance between the height of the game and the tallest platform
@@ -146,21 +157,16 @@ function toHell() {
   biasTowardsTopMultiplier = 8;
 
   platformWidth = 150;
-  platformGenDelay = DELAY_CONSTANT * 0.3;
 
   createPits = false;
-  groundGenDelay = 0;
   
   createInitalGround( windowH - ( windowH / 3 ) );
   createInitalGround(  windowH - platformHeight );
   
-  platformsGroup = hellPlatforms = game.add.group();
-  hellPlatforms.enableBody = true;
-  game.physics.arcade.enable(hellPlatforms);
+  // platformsGroup = hellPlatforms = game.add.group();
+  // hellPlatforms.enableBody = true;
+  // game.physics.arcade.enable(hellPlatforms);
 
   player.y = 0;
 
-  platformsGroup.forEach(function(platform) {
-    platform.loadTexture('ground-hell');
-  });
 }
