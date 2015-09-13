@@ -198,9 +198,9 @@ function toHell() {
   biasTowardsBottomMultiplier = 4;
   biasTowardsTopMultiplier = 4;
 
-  platformGenDelayMultipler = 0.3;
+  platformGenDelayMultipler = 0.25;
   groundGenDelayMultipler = 0.01;
-  updateSpeed(300);
+  updateSpeed(350);
   platformWidth = 100;
 
   ScoreTimer.delay = 100;
