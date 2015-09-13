@@ -37,9 +37,11 @@ function enablePlayerJump() {
     midJump = true;
   }
 
-  if( !jumpKey.isDown && midJump == true && player.body.velocity < 0 ) {
-    player.body.velocity.y = 0;
-  }
+  if ( !jumpKey.isDown && midJump == true )
+    if ( player.body.velocity < 0 ) {
+      console.log("here");
+      player.body.velocity.y = 0;
+    }
 
   if (jumpKey.isDown && midJump == false) {
     midJump = true;
@@ -88,9 +90,23 @@ function toGround() {
   background.loadTexture('background');
   groundSprite = 'ground';
 
+  ScoreTimer.delay(10);
+
   platformsGroup.forEach(function(platform) {
     platform.loadTexture('ground');
   });
+
+  platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
+  platformFloorOffset = ( windowH * 0.12 ); //this is the distance between the bottom of the game and the lowest platform
+  biasTowardsBottomMultiplier = 3;
+  biasTowardsTopMultiplier = 15;
+
+  platformWidth = 200;
+  platformGenDelay = DELAY_CONSTANT * 0.43;   //platforms are created closed horizontally as this value decreases
+
+  createPits = true;
+  groundGenDelay = DELAY_CONSTANT * 0.5;
+
 }
 
 function toHell() {
