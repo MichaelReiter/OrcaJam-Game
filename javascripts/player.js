@@ -104,7 +104,6 @@ function toGround() {
   groundSprite = 'ground';
   platformSprite = 'ground';
 
-  ScoreTimer.delay = 10;
 
   platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
   platformFloorOffset = ( windowH * 0.12 ); //this is the distance between the bottom of the game and the lowest platform
@@ -112,10 +111,8 @@ function toGround() {
   biasTowardsTopMultiplier = 15;
 
   platformWidth = 200;
-  platformGenDelay = DELAY_CONSTANT * 0.43;   //platforms are created closed horizontally as this value decreases
 
   createPits = true;
-  groundGenDelay = DELAY_CONSTANT * 0.5;
 
   player.y = ( windowH * 0.75);
 
@@ -128,6 +125,11 @@ function toGround() {
   groundGroup.forEach(function(ground) {
     ground.loadTexture('ground');
   });
+
+  ScoreTimer.delay = 10;
+  platformGenTimer.delay = DELAY_CONSTANT * 0.43;   //platforms are created closed horizontally as this value decreases
+  groundGenTimer.delay = DELAY_CONSTANT * 0.5;
+
 }
 
 function toHell() {
@@ -140,9 +142,6 @@ function toHell() {
   groundSprite = 'lava';
 
   // update timer speed for enviroment generation and score
-  ScoreTimer.delay = 100;
-  platformGenDelay = DELAY_CONSTANT * 0.3;
-  groundGenDelay = 0;
 
   //destroy all platforms
   platformsGroup.forEach(function(obj) {
@@ -176,4 +175,8 @@ function toHell() {
   groundGroup.forEach(function(ground) {
     ground.loadTexture('lava');
   });
+
+  ScoreTimer.delay = 100;
+  platformGenTimer.delay = DELAY_CONSTANT * 0.2;
+  groundGenTimer.delay = 0.01;
 }
