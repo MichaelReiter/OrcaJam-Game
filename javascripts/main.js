@@ -22,7 +22,7 @@ function create() {
   startPlatformGeneration();
   startGroundGeneration();
   
-  createInitalGround();
+  createInitalGround(windowH - platformHeight);
 
   createPlayer();
 
@@ -30,15 +30,13 @@ function create() {
 
 function update() {
 
-  game.world.remove(scoreLabel);
-  score++;
-  scoreLabel = game.add.text(windowW/2, windowH/10, score, { font: 'bold 20pt Comic Sans MS', fill: '#ffffff' }); 
+  updateScore();
 
   changeNextPlatformTime(platformGenTimer);
 
   game.physics.arcade.collide(initialGroundGroup, player);
   game.physics.arcade.collide(groundGroup, player);
-  game.physics.arcade.collide(platformsGroup, player);
+  game.physics.arcade.collide( platformsGroup, player, placeHolder , playerVsPlatCollide );
 
   enablePlayerJump();
   enableZoneChange();
@@ -46,5 +44,7 @@ function update() {
 
   destroyOldGround();
   destroyOldPlatforms();
+
+
  
 }

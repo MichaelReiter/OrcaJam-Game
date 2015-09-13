@@ -1,9 +1,11 @@
 var platformHeight = 32;
 var prevPlatYPos = ( ( windowH / 16 ) * 3 );
-var minPlatformYDist = ( windowH / 20 );
+var minPlatformYDist = ( windowH / 16 );
 var maxPlatformYDist = ( ( windowH / 16 ) * 3 );
 var platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
-var platformFloorOffset = ( windowH * 0.2 ); //this is the distance between the bottom of the game and the lowest platform
+var platformFloorOffset = ( windowH * 0.16 ); //this is the distance between the bottom of the game and the lowest platform
+var biasTowardsBottomMultiplier = 3;
+var biasTowardsTopMultiplier = 10;
 
 function initializePlatformGroup() {
   groundLevelPlatforms = game.add.group();
@@ -31,10 +33,24 @@ function createPlatform() {
   // 
   // -------- bottom of game------------------
   while (true) {
+
     var bias = ( player.position.y / windowH );
+
+    // flipping percentage value so bias is not oppisite to where player is
     bias = ( 1 - bias );
+    // expanding bias by 2 to create 
     bias *= 2;
+
+    // if ( bias > 1 ) {
+    //   bias *=  biasTowardsBottomMultiplier;
+    // }
+    // else {
+    //   bias /= biasTowardsTopMultiplier;
+    // }
+
     var randBiased = Math.pow( Math.random(), bias );
+
+
     var platYPos =  platformCeilingOffset + ( randBiased * ( game.height - platformCeilingOffset - platformFloorOffset ) );
     var temp1 = Math.abs(platYPos);
     var temp2 = Math.abs(prevPlatYPos);
@@ -61,4 +77,10 @@ function destroyOldPlatforms() {
       platform.kill();
     }
   });
+}
+
+function playerVsPlatCollide() {
+  if( player.body.velocity.y > 0 )
+    return true;
+  else return false;
 }

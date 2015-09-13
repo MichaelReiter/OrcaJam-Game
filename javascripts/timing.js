@@ -1,5 +1,6 @@
 var groundGenDelay = ( 300000 / scrollSpeed ) / 2;
-var platformGenDelay = ( 300000 / scrollSpeed ) / 3;
+var platformGenDelay = ( 300000 / scrollSpeed ) / 2.3;
+var platformGenDistanceMultipler = 2.5;
 
 function startPlatformGeneration() {
 
@@ -31,7 +32,7 @@ function changeNextPlatformTime(platTimer) {
 
   // Math.random * 3 seconds generates a number between 0 and 3, the random factor in when the next platform will come
   // phaser.Timer.SECOND is the offset added to the random factor, so the next platform will not come for at LEAST a second
-  var platformGenTime = ( ( Math.random() * 3 * platformGenDelay ) + platformGenDelay );
+  var platformGenTime = ( ( Math.random() * platformGenDistanceMultipler * platformGenDelay ) + platformGenDelay );
   platTimer.delay = platformGenTime;
 }
 

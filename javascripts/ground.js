@@ -34,9 +34,9 @@ function createGround() {
 
 }
 
-function createInitalGround() {
-  var initialGroundInstance = initialGroundGroup.create(0, game.world.height - platformHeight, groundSprite);
-  initialGroundInstance.width = game.world.width * 1.2;
+function createInitalGround(groundStartHeight) {
+  var initialGroundInstance = initialGroundGroup.create(0, groundStartHeight, groundSprite);
+  initialGroundInstance.width = game.world.width * 1.3;
   initialGroundInstance.body.velocity.x = -scrollSpeed;
   initialGroundInstance.body.immovable = true;
 }
