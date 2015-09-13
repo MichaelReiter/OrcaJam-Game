@@ -41,7 +41,6 @@ function update() {
   destroyOldPlatforms();
   
   if (groundLevel) {
-    console.log("in ground");
     groundGenUpdateCount = 7;
     platformGenUpdateCount = 50;
   }
@@ -53,13 +52,11 @@ function update() {
     groundGenUpdateCount = 1;
     platformGenUpdateCount = 30;
   }
-
   updateCounter++;
 
   if( !inHeaven && updateCounter % groundGenUpdateCount == 0 ) {
     createGround();
   }
-
   if( updateCounter % platformGenUpdateCount == 0 ) {
     createPlatform();
   }
