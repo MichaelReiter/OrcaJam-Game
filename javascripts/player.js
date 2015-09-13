@@ -4,7 +4,7 @@ function createPlayer() {
   desiredXPosition = windowW/3;
 
   // The player and its settings
-  player = game.add.sprite(desiredXPosition, game.world.height - 150, 'dude');
+  player = game.add.sprite(50, game.world.height - 150, 'dude');
 
   //  We need to enable physics on the player
   game.physics.arcade.enable(player);
@@ -102,11 +102,15 @@ function toHeaven() {
   groundLevel = false;
   inHell = false;
 
+  platformWidth = 200;
+  updateSpeed(500);
+
   //change future created platform sprites
   platformSprite = 'ground-heaven';
   groundSprite = 'ground-heaven';
 
   // update timer speed for enviroment generation and score
+<<<<<<< HEAD
   platformCeilingOffset = ( windowH * 0.10 ); //this is the distance between the height of the game and the tallest platform
   platformFloorOffset = ( windowH * 0.33 ); //this is the distance between the bottom of the game and the lowest platform
   biasTowardsBottomMultiplier = 4;
@@ -115,6 +119,15 @@ function toHeaven() {
   platformGenDelayMultipler = 0.75;
   groundGenDelayMultipler = 0;
   updateSpeed(scrollSpeed*2);
+||||||| merged common ancestors
+  ScoreTimer.delay = 10;
+  platformGenDelay = DELAY_CONSTANT * 0.75;
+  groundGenDelay = 0;
+=======
+  ScoreTimer.delay = 10;
+  platformGenDelay = DELAY_CONSTANT * 0.5;
+  groundGenDelay = 0;
+>>>>>>> 3628ba7db445cf6c9d937be9d4b6bf186d58fb88
 
   //destroy all platforms
   platformsGroup.forEach(function(obj) {
@@ -123,10 +136,19 @@ function toHeaven() {
 
   createHeightedPlatform( (windowH / 2.2), ( windowW + 200) );
 
+<<<<<<< HEAD
   platformWidth = 300;
 
   player.gravity /= 3;
 
+||||||| merged common ancestors
+  platformWidth = 300;
+
+  player.gravity /= 3;
+  scrollSpeed *= 2;
+
+=======
+>>>>>>> 3628ba7db445cf6c9d937be9d4b6bf186d58fb88
   createPits = false;
   
   createInitalGround((windowH - ( windowH / 3 ) - 10), 'ground-heaven', 1);
@@ -160,7 +182,8 @@ function toGround() {
 
   platformGenDelayMultipler = 0.43;
   groundGenDelayMultipler = 0.6;
-  updateSpeed(500);
+  updateSpeed(400);
+  platformWidth = 250;
 
   ScoreTimer.delay = 10;
 
@@ -168,13 +191,24 @@ function toGround() {
   groundSprite = 'ground';
   platformSprite = 'ground';
 
+<<<<<<< HEAD
 
+||||||| merged common ancestors
 
-  platformWidth = 200;
+  platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
+  platformFloorOffset = ( windowH * 0.12 ); //this is the distance between the bottom of the game and the lowest platform
+  biasTowardsBottomMultiplier = 3;
+  biasTowardsTopMultiplier = 20;
+=======
+  platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
+  platformFloorOffset = ( windowH * 0.12 ); //this is the distance between the bottom of the game and the lowest platform
+  biasTowardsBottomMultiplier = 3;
+  biasTowardsTopMultiplier = 20;
+>>>>>>> 3628ba7db445cf6c9d937be9d4b6bf186d58fb88
 
   createPits = true;
 
-  player.y = ( windowH * 0.75);
+  player.y = ( windowH * 0.1);
 
   createInitalGround(windowH - platformHeight, 'ground', 1);
 
@@ -186,6 +220,7 @@ function toGround() {
     ground.loadTexture('ground');
   });
 
+  killPlatformsAndGround();
 
   inTransition = false;
 }
@@ -203,7 +238,8 @@ function toHell() {
 
   platformGenDelayMultipler = 0.3;
   groundGenDelayMultipler = 0.01;
-  updateSpeed(500);
+  updateSpeed(300);
+  platformWidth = 100;
 
   ScoreTimer.delay = 100;
   //change future created platform sprites
@@ -219,8 +255,6 @@ function toHell() {
 
   createHeightedPlatform( (windowH / 1.8), windowW + 100);
 
-
-  platformWidth = 150;
 
   createPits = false;
   
@@ -239,7 +273,6 @@ function toHell() {
   groundGroup.forEach(function(ground) {
     ground.loadTexture('lava');
   });
-
 
   inTransition = false;
 }
