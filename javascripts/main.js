@@ -40,11 +40,10 @@ function update() {
   game.physics.arcade.collide(groundGroup, player);
   game.physics.arcade.collide(platformsGroup, player);
 
-  destroyOldGround();
-
   enablePlayerJump();
   enableZoneChange();
 
   destroyOldGround();
+  destroyOldPlatforms();
  
 }
