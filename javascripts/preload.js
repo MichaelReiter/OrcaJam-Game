@@ -1,4 +1,4 @@
-var scrollSpeed = 350;
+var scrollSpeed = 500;
 var windowH = window.innerHeight;
 var windowW = window.innerWidth;
 var score = 0;
