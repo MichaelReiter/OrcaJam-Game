@@ -1,6 +1,7 @@
 var platformHeight = 32;
-var prevPlatYPos = 2000;
-var minPlatformYDist = 150;
+var prevPlatYPos = ( ( windowH / 16 ) * 3 );
+var minPlatformYDist = ( windowH / 20 );
+var maxPlatformYDist = ( ( windowH / 16 ) * 3 );
 var platformCeilingOffset = ( windowH * 0.1 ); //this is the distance between the height of the game and the tallest platform
 var platformFloorOffset = ( windowH * 0.15 ); //this is the distance between the bottom of the game and the lowest platform
 
@@ -11,7 +12,7 @@ function initializePlatformGroup() {
 }
 
 function createPlatform() {
-  do {
+  while(true) {
 
     // visual of platYPos is generated
     // 
@@ -31,13 +32,27 @@ function createPlatform() {
     // -------- bottom of game------------------
     
     var platYPos =  platformCeilingOffset + ( Math.random() * ( game.height - platformCeilingOffset - platformFloorOffset ) );
-  }
-  while ( Math.abs( platYPos - prevPlatYPos ) < minPlatformYDist )
+    var temp1 = Math.abs(platYPos);
+    var temp2 = Math.abs(prevPlatYPos);
+    var diffFromPrevPos = Math.abs( temp1 - temp2 );
 
-  prevPlatYPos = platYPos;
+    console.log("temp1 "); 
+    console.log(temp1);
+    console.log("temp2 "); 
+    console.log(temp2);
+    console.log("diffFromPrevPos "); 
+    console.log(diffFromPrevPos);
+
+    if( diffFromPrevPos > minPlatformYDist )
+      if( diffFromPrevPos < maxPlatformYDist )
+        break;
+  }
 
   var ledge = platformsGroup.create( game.world.width, platYPos, 'ground' );
+
   ledge.body.velocity.x = -scrollSpeed;
   ledge.body.immovable = true;
   ledge.width = 200;
+
+  prevPlatYPos = platYPos;
 }

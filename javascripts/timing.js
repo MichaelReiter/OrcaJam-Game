@@ -1,5 +1,5 @@
   var groundGenDelay = ( 300000 / scrollSpeed ) / 2;
-  var platformGenDelay = ( 300000 / scrollSpeed ) / 2;
+  var platformGenDelay = ( 300000 / scrollSpeed ) / 3;
 
 	function startPlatformGeneration() {
 
