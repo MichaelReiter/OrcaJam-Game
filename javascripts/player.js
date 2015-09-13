@@ -71,8 +71,6 @@ function toHell() {
   groundLevel = false;
   inHell = true;
 
-  curZone = "hell";
-
   //destroy all platforms
   platformsGroup.forEach(function(obj) {
     obj.kill();
@@ -80,17 +78,23 @@ function toHell() {
 
   platformCeilingOffset = ( windowH * 0.10 ); //this is the distance between the height of the game and the tallest platform
   platformFloorOffset = ( windowH * 0.33 ); //this is the distance between the bottom of the game and the lowest platform
-  biasTowardsBottomMultiplier = 5;
-  biasTowardsTopMultiplier = 6;
+  biasTowardsBottomMultiplier = 4;
+  biasTowardsTopMultiplier = 8;
+
+  createPits = false;
+  groundGenDelay = 0;
+
 
   background = game.add.sprite(0, 0, 'background-hell');
   background.height = game.height;
   background.width = game.width;
 
-  createInitalGround( windowH - ( windowH / 3 ) );
-  
   groundSprite = 'ground-hell';
   
+  createInitalGround( windowH - ( windowH / 3 ) );
+  // createInitalGround(  windowH - platformHeight );
+  
+
   platformsGroup = hellPlatforms = game.add.group();
   hellPlatforms.enableBody = true;
   game.physics.arcade.enable(hellPlatforms);

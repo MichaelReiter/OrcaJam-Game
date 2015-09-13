@@ -1,6 +1,7 @@
 var pitGenChance = 3; // a variable from 0 - 9 that controls chance of a pit being generated
 var prevGeneratedPit = false;
 var groundSprite = 'ground';
+var createPits = true;
 
 function initializeGroundGroups() {
 	groundLevelGroundGroup = game.add.group();
@@ -20,9 +21,11 @@ function createGround() {
 	// 0 and 1. if the random number generated is less than the pitGenChance number, a pit is generated
 	// the higher the pitGenCHance number becomes, the greater the chance of the random number being less than it becomes, and a pit
 	// is more likely to be generated
-	if ( Math.random() < ( pitGenChance / 10 ) && !prevGeneratedPit ) {
-		prevGeneratedPit = true;
-		return ;
+	if(createPits) {
+		if ( Math.random() < ( pitGenChance / 10 ) && !prevGeneratedPit ) {
+			prevGeneratedPit = true;
+			return ;
+		}
 	}
 
 	prevGeneratedPit = false;
