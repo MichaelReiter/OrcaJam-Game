@@ -61,7 +61,7 @@ function createPlatform() {
     }
   }
 
-  var ledge = platformsGroup.create( game.world.width, platYPos, groundSprite );
+  var ledge = platformsGroup.create(game.world.width, platYPos, platformSprite);
 
   ledge.body.velocity.x = -scrollSpeed;
   ledge.body.immovable = true;
@@ -71,7 +71,7 @@ function createPlatform() {
 }
 
 function createHeightedPlatform(height) {
-  var ledge = platformsGroup.create( game.world.width, height, groundSprite );
+  var ledge = platformsGroup.create(game.world.width, height, platformSprite);
   ledge.body.velocity.x = -scrollSpeed;
   ledge.body.immovable = true;
   ledge.width = platformWidth;
