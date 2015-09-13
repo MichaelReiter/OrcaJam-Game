@@ -1,5 +1,5 @@
 var platformHeight = 32;
-var prevPlatYPos = ( ( windowH / 16 ) * 3 );
+var prevPlatYPos = ( windowH - (windowH / 16) );
 var minPlatformYDist = ( windowH / 16 );
 var maxPlatformYDist = ( ( windowH / 24 ) * 3 );
 var platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
@@ -15,59 +15,29 @@ function initializePlatformGroup() {
 }
 
 function createPlatform() {
-  // visual of platYPos is generated
-  // 
-  // -------- top of game ----------- 
-  // 
-  // platform ceiling offset
-  // 
-  // ---------------------------------------
-  // 
-  //          
-  // game.height - plat ceiling offset - platform floor offset 
-  // ( the platforms will appear within this range )
-  // 
-  // 
-  // -----------------------------------
-  // 
-  // -------- bottom of game------------------
-  // while (true) {
 
-  //   var bias = ( player.position.y / windowH );
+  do {
+    platYPos = Math.random() * windowH;
+    var platDiff = calcPlatformDistDiff(prevPlatYPos,platYPos);
+  }
+  while( platDiff < minPlatformYDist || platDiff > maxPlatformYDist )
 
-  //   // flipping percentage value so bias is not oppisite to where player is
-  //   bias = ( 1 - bias );
-  //   // expanding bias by 2 to create 
-  //   bias *= 2;
+  
 
-  //   // if ( bias > 1 ) {
-  //   //   bias *=  biasTowardsBottomMultiplier;
-  //   // }
-  //   // else {
-  //   //   bias /= biasTowardsTopMultiplier;
-  //   // }
-
-  //   var randBiased = Math.pow(Math.random(), bias);
-
-  //   var platYPos =  platformCeilingOffset + ( randBiased * ( game.height - platformCeilingOffset - platformFloorOffset ) );
-  //   var temp1 = Math.abs(platYPos);
-  //   var temp2 = Math.abs(prevPlatYPos);
-  //   var diffFromPrevPos = Math.abs( temp1 - temp2 );
-
-  //   if ( diffFromPrevPos > minPlatformYDist ) {
-  //     if ( diffFromPrevPos < maxPlatformYDist ) {
-  //       break;
-  //     }
-  //   }
-  // }
-
-  var ledge = platformsGroup.create(game.world.width, 500, platformSprite);
+  var ledge = platformsGroup.create(game.world.width, platYPos, platformSprite);
 
   ledge.body.velocity.x = -scrollSpeed;
   ledge.body.immovable = true;
   ledge.width = platformWidth;
 
-  // prevPlatYPos = platYPos;
+  prevPlatYPos = platYPos;
+}
+
+function calcPlatformDistDiff(prevPlatY, curPlatY) {
+
+  var diff = Math.abs( prevPlatY - curPlatY );
+
+  return diff;
 }
 
 function createHeightedPlatform(height, xPos, width) {
