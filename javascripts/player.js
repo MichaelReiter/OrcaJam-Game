@@ -46,6 +46,10 @@ function enablePlayerJump() {
 
 function accelerateToRunningPosition() {
 
+  platformsGroup.forEach(function(platform) {
+    platform.bringToTop();
+  });
+
   if (player.x < desiredXPosition) {
     player.body.velocity.x = scrollSpeed * 1.1;
   } else {
@@ -63,6 +67,9 @@ function enableZoneChange() {
 }
 
 function toHell() {
+  inHeaven = false;
+  groundLevel = false;
+  inHell = true;
 
   curZone = "hell";
 
@@ -82,11 +89,29 @@ function toHell() {
 
   createInitalGround( windowH - ( windowH / 3 ) );
   
+  groundSprite = 'ground-hell';
+  
+  platformsGroup = hellPlatforms = game.add.group();
+  hellPlatforms.enableBody = true;
+  game.physics.arcade.enable(hellPlatforms);
+
+  groundGroup = hellGround = game.add.group();
+  hellGround.enableBody = true;
+  game.physics.arcade.enable(hellGround);
+
   player.y = 0;
   player.bringToTop();
+
+  platformsGroup.forEach(function(platform) {
+    platform.bringToTop();
+  });
 
 }
 
 function toHeaven() {
-  curZone = "heaven";
+
+  inHeaven = true;
+  groundLevel = false;
+  inHell = false;
+
 }

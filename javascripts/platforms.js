@@ -8,34 +8,32 @@ var biasTowardsBottomMultiplier = 3;
 var biasTowardsTopMultiplier = 10;
 
 function initializePlatformGroup() {
-  platformsGroup = game.add.group();
-  platformsGroup.enableBody = true;
-  game.physics.arcade.enable(platformsGroup);
-  platformsGroup.collideDown = false;
+  groundLevelPlatforms = game.add.group();
+  groundLevelPlatforms.enableBody = true;
+  game.physics.arcade.enable(groundLevelPlatforms);
+  platformsGroup = groundLevelPlatforms;
 }
 
 function createPlatform() {
-  while(true) {
 
-    // visual of platYPos is generated
-    // 
-    // -------- top of game ----------- 
-    // 
-    // platform ceiling offset
-    // 
-    // ---------------------------------------
-    // 
-    //          
-    // game.height - plat ceiling offset - platform floor offset 
-    // ( the platforms will appear within this range )
-    // 
-    // 
-    // -----------------------------------
-    // 
-    // -------- bottom of game------------------
-     
-    
-    // determining  percentage of screen player is in
+  // visual of platYPos is generated
+  // 
+  // -------- top of game ----------- 
+  // 
+  // platform ceiling offset
+  // 
+  // ---------------------------------------
+  // 
+  //          
+  // game.height - plat ceiling offset - platform floor offset 
+  // ( the platforms will appear within this range )
+  // 
+  // 
+  // -----------------------------------
+  // 
+  // -------- bottom of game------------------
+  while (true) {
+
     var bias = ( player.position.y / windowH );
 
     // flipping percentage value so bias is not oppisite to where player is
@@ -58,12 +56,12 @@ function createPlatform() {
     var temp2 = Math.abs(prevPlatYPos);
     var diffFromPrevPos = Math.abs( temp1 - temp2 );
 
-    if( diffFromPrevPos > minPlatformYDist )
-      if( diffFromPrevPos < maxPlatformYDist )
+    if ( diffFromPrevPos > minPlatformYDist )
+      if ( diffFromPrevPos < maxPlatformYDist )
         break;
   }
 
-  var ledge = platformsGroup.create( game.world.width, platYPos, 'ground' );
+  var ledge = platformsGroup.create( game.world.width, platYPos, groundSprite );
 
   ledge.body.velocity.x = -scrollSpeed;
   ledge.body.immovable = true;
