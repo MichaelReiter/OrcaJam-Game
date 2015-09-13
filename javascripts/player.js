@@ -48,7 +48,6 @@ function enablePlayerJump() {
     }
   }
 
-
   if( jumpCheatKey.isDown ) {
     player.body.velocity.y = -700;
   }
@@ -97,13 +96,13 @@ function toHeaven() {
 }
 
 function toGround() {
-
   inHeaven = false;
   groundLevel = true;
   inHell = false;
 
   background.loadTexture('background');
   groundSprite = 'ground';
+  platformSprite = 'ground';
 
 
   platformsGroup.forEach(function(platform) {
@@ -124,7 +123,6 @@ function toGround() {
   groundGenDelay = DELAY_CONSTANT * 0.5;
 
   createInitalGround(  windowH - platformHeight );
-
 }
 
 function toHell() {
@@ -133,7 +131,8 @@ function toHell() {
   groundLevel = false;
   inHell = true;
 
-  groundSprite = 'ground-hell';
+  platformSprite = 'ground-hell';
+  groundSprite = 'lava';
 
   // update timer speed for enviroment generation and score
   ScoreTimer.delay = 100;
@@ -160,8 +159,8 @@ function toHell() {
 
   createPits = false;
   
-  createInitalGround( windowH - ( windowH / 3 ) );
-  createInitalGround(  windowH - platformHeight );
+  createInitalGround( (windowH - ( windowH / 3 ) - 10), 'ground-hell');
+  createInitalGround(  (windowH - platformHeight), 'lava' );
   
   // platformsGroup = hellPlatforms = game.add.group();
   // hellPlatforms.enableBody = true;
