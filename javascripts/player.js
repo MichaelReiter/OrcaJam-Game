@@ -1,4 +1,4 @@
-var player = game.add.sprite(0, game.world.height - 150, 'dude');
+var player;
 var midJump = false;
 
 function createPlayer() {
@@ -22,6 +22,7 @@ function createPlayer() {
 
 function enablePlayerJump() {
   var jumpKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+  var jumpCheatKey = game.input.keyboard.addKey(Phaser.Keyboard.C);
 
   if (player.body.touching.down) {
     midJump = false;
@@ -45,6 +46,10 @@ function enablePlayerJump() {
     player.body.velocity.x = 0;
     player.body.velocity.y = -750;
   }
+
+  if( jumpCheatKey.isDown ) {
+    player.body.velocity.y = -700;
+  }
 }
 
 function accelerateToRunningPosition() {
@@ -61,26 +66,39 @@ function accelerateToRunningPosition() {
 
 function enableZoneChange() {
   if (player.y > windowH) {
-    toHell();
+    if( groundLevel ) {
+      toHell();
+    }
+    else if ( inHell ) {
+      // do nothing
+    }
+    else if ( inHeaven ) {
+      toGround();
+    }
   }
   if (player.y < 0) {
-    toHeaven();
+    if( groundLevel ) {
+      toHeaven();
+    }
+    else if ( inHell ) {
+      toGround()
+    }
+    else if ( inHeaven ) {
+      // do nothing
+    }
   }
 }
 
 function toHeaven() {
-  inHeaven = true;
-  groundLevel = false;
-  inHell = false;
-  game.destroy();
-  game = new Phaser.Game(windowW, windowH, Phaser.CANVAS, '', {
-    preload: preload,
-    create: create,
-    update: update
-  });
+// 
 }
 
 function toGround() {
+
+  inHeaven = false;
+  groundLevel = true;
+  inHell = false;
+
   background.loadTexture('background');
   groundSprite = 'ground';
 
@@ -106,9 +124,11 @@ function toGround() {
 }
 
 function toHell() {
+
   inHeaven = false;
   groundLevel = false;
   inHell = true;
+
   groundSprite = 'ground-hell';
 
   ScoreTimer.delay = 100;
