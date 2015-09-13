@@ -98,10 +98,15 @@ function enableZoneChange() {
 }
 
 function toHeaven() {
+  inTransition = true;
 // 
+  inTransition = false;
 }
 
 function toGround() {
+
+  inTransition = true;
+
   inHeaven = false;
   groundLevel = true;
   inHell = false;
@@ -136,9 +141,11 @@ function toGround() {
   platformGenTimer.delay = DELAY_CONSTANT * 0.43;   //platforms are created closed horizontally as this value decreases
   groundGenTimer.delay = DELAY_CONSTANT * 0.5;
 
+  inTransition = false;
 }
 
 function toHell() {
+  inTransition = true;
 
   inHeaven = false;
   groundLevel = false;
@@ -183,4 +190,6 @@ function toHell() {
   ScoreTimer.delay = 100;
   platformGenTimer.delay = DELAY_CONSTANT * 0.2;
   groundGenTimer.delay = 0.01;
+
+  inTransition = false;
 }
