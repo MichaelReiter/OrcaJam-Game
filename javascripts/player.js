@@ -152,7 +152,11 @@ function toGround() {
   groundLevel = true;
   inHell = false;
 
-  scrollSpeed = 700;
+  platformGenDelayMultipler = 0.43;
+  groundGenDelayMultipler = 0.6;
+  updateSpeed(500);
+
+  ScoreTimer.delay = 10;
 
   background.loadTexture('background');
   groundSprite = 'ground';
@@ -180,9 +184,6 @@ function toGround() {
     ground.loadTexture('ground');
   });
 
-  ScoreTimer.delay = 10;
-  platformGenTimer.delay = DELAY_CONSTANT * 0.43;   //platforms are created closed horizontally as this value decreases
-  groundGenTimer.delay = DELAY_CONSTANT * 0.6;
 
   inTransition = false;
 }
@@ -193,8 +194,11 @@ function toHell() {
   groundLevel = false;
   inHell = true;
 
-  scrollSpeed = 500;
+  platformGenDelayMultipler = 0.3;
+  groundGenDelayMultipler = 0.01;
+  updateSpeed(500);
 
+  ScoreTimer.delay = 100;
   //change future created platform sprites
   platformSprite = 'ground-hell';
   groundSprite = 'lava';
@@ -231,9 +235,6 @@ function toHell() {
     ground.loadTexture('lava');
   });
 
-  ScoreTimer.delay = 100;
-  platformGenTimer.delay = DELAY_CONSTANT * 0.1;
-  groundGenTimer.delay = 0.01;
 
   inTransition = false;
 }

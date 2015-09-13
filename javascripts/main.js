@@ -15,27 +15,23 @@ function create() {
   background.height = game.height;
   background.width = game.width;
 
+
   initializeGroundGroups();
   initializePlatformGroup();
 
   startPlatformGeneration();
   startGroundGeneration();
+  updateSpeed(800);
+  createPlayer();
+  createInitalGround((windowH - platformHeight), 'ground', 1);
   startScoreCounting();
   
-  createInitalGround((windowH - platformHeight), platformSprite, 1);
-
-  createPlayer();
 
   toGround();
+
 }
 
 function update() {
-  if( !inTransition ) {
-    changeNextPlatformTime();
-  }
-  else {
-   console.log("in transition");
- }
 
   game.physics.arcade.collide(initialGroundGroup, player);
   game.physics.arcade.collide( platformsGroup, player, placeHolder, playerVsPlatCollide );
@@ -46,6 +42,12 @@ function update() {
   enablePlayerDeathByLeftBoundary();
   // enablePauseGame();
 
-  destroyOldGround();
-  destroyOldPlatforms();
+  if( !inTransition ) {
+    changeNextPlatformTime();
+    destroyOldGround();
+    destroyOldPlatforms();
+  }
+  else {
+   console.log("in transition");
+ }
 }
