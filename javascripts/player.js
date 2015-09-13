@@ -110,9 +110,9 @@ function toHeaven() {
   groundSprite = 'ground-heaven';
 
   // update timer speed for enviroment generation and score
-  platformCeilingOffset = ( windowH * 0.3 ); //this is the distance between the height of the game and the tallest platform
+  platformCeilingOffset = ( windowH * 0.5 ); //this is the distance between the height of the game and the tallest platform
   platformFloorOffset = ( windowH * 0.05 ); //this is the distance between the bottom of the game and the lowest platform
-  biasTowardsBottomMultiplier = 10000;
+  biasTowardsBottomMultiplier = 5;
   biasTowardsTopMultiplier = 1;
 
   platformGenDelayMultipler = 0.6;
