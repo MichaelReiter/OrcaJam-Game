@@ -80,6 +80,11 @@ function toHell() {
 
   background.loadTexture('background-hell')
 
+  platformCeilingOffset = ( windowH * 0.10 ); //this is the distance between the height of the game and the tallest platform
+  platformFloorOffset = ( windowH * 0.33 ); //this is the distance between the bottom of the game and the lowest platform
+  biasTowardsBottomMultiplier = 5;
+  biasTowardsTopMultiplier = 6;
+
   createInitalGround( windowH - ( windowH / 3 ) );
   
   platformsGroup = hellPlatforms = game.add.group();
