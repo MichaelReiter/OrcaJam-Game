@@ -31,43 +31,43 @@ function createPlatform() {
   // -----------------------------------
   // 
   // -------- bottom of game------------------
-  while (true) {
+  // while (true) {
 
-    var bias = ( player.position.y / windowH );
+  //   var bias = ( player.position.y / windowH );
 
-    // flipping percentage value so bias is not oppisite to where player is
-    bias = ( 1 - bias );
-    // expanding bias by 2 to create 
-    bias *= 2;
+  //   // flipping percentage value so bias is not oppisite to where player is
+  //   bias = ( 1 - bias );
+  //   // expanding bias by 2 to create 
+  //   bias *= 2;
 
-    // if ( bias > 1 ) {
-    //   bias *=  biasTowardsBottomMultiplier;
-    // }
-    // else {
-    //   bias /= biasTowardsTopMultiplier;
-    // }
+  //   // if ( bias > 1 ) {
+  //   //   bias *=  biasTowardsBottomMultiplier;
+  //   // }
+  //   // else {
+  //   //   bias /= biasTowardsTopMultiplier;
+  //   // }
 
-    var randBiased = Math.pow(Math.random(), bias);
+  //   var randBiased = Math.pow(Math.random(), bias);
 
-    var platYPos =  platformCeilingOffset + ( randBiased * ( game.height - platformCeilingOffset - platformFloorOffset ) );
-    var temp1 = Math.abs(platYPos);
-    var temp2 = Math.abs(prevPlatYPos);
-    var diffFromPrevPos = Math.abs( temp1 - temp2 );
+  //   var platYPos =  platformCeilingOffset + ( randBiased * ( game.height - platformCeilingOffset - platformFloorOffset ) );
+  //   var temp1 = Math.abs(platYPos);
+  //   var temp2 = Math.abs(prevPlatYPos);
+  //   var diffFromPrevPos = Math.abs( temp1 - temp2 );
 
-    if ( diffFromPrevPos > minPlatformYDist ) {
-      if ( diffFromPrevPos < maxPlatformYDist ) {
-        break;
-      }
-    }
-  }
+  //   if ( diffFromPrevPos > minPlatformYDist ) {
+  //     if ( diffFromPrevPos < maxPlatformYDist ) {
+  //       break;
+  //     }
+  //   }
+  // }
 
-  var ledge = platformsGroup.create(game.world.width, platYPos, platformSprite);
+  var ledge = platformsGroup.create(game.world.width, 500, platformSprite);
 
   ledge.body.velocity.x = -scrollSpeed;
   ledge.body.immovable = true;
   ledge.width = platformWidth;
 
-  prevPlatYPos = platYPos;
+  // prevPlatYPos = platYPos;
 }
 
 function createHeightedPlatform(height, xPos, width) {
