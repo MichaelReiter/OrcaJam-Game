@@ -110,11 +110,6 @@ function toGround() {
   groundSprite = 'ground';
   platformSprite = 'ground';
 
-
-  platformsGroup.forEach(function(platform) {
-    platform.loadTexture('ground');
-  });
-
   ScoreTimer.delay = 10;
 
   platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
@@ -128,6 +123,8 @@ function toGround() {
   createPits = true;
   groundGenDelay = DELAY_CONSTANT * 0.5;
 
+  player.y = ( windowH * 0.75);
+
   createInitalGround(windowH - platformHeight, 'ground', 1);
 
   platformsGroup.forEach(function(platform) {
@@ -140,6 +137,7 @@ function toGround() {
 }
 
 function toHell() {
+
   inHeaven = false;
   groundLevel = false;
   inHell = true;
