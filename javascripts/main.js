@@ -4,19 +4,17 @@ var game = new Phaser.Game(windowW, windowH, Phaser.CANVAS, '', {
   update: update
 });
 
-var scoreLabel;
+var scoreLabel, background;
 
 preload();
 
 function create() {
 
-  //  We're going to be using physics, so enable the Arcade Physics system
   game.physics.startSystem(Phaser.Physics.ARCADE);
 
-  //  A simple background for our game
-  var sky = game.add.sprite(0, 0, 'sky');
-  sky.height = game.height;
-  sky.width = game.width;
+  background = game.add.sprite(0, 0, 'background');
+  background.height = game.height;
+  background.width = game.width;
 
   initializeGroundGroups();
   initializePlatformGroup();
@@ -32,13 +30,11 @@ function create() {
 
 function update() {
 
-  // console.log(score);
-
-  game.world.remove(scoreLabel)
+  game.world.remove(scoreLabel);
   score++;
-  scoreLabel = game.add.text(windowW/2, windowH/10, score, { font: 'bold 20pt Avenir Next', fill: '#ffffff' }); 
+  scoreLabel = game.add.text(windowW/2, windowH/10, score, { font: 'bold 20pt Comic Sans MS', fill: '#ffffff' }); 
 
-  changeNextPlatformTime( platformGenTimer );
+  changeNextPlatformTime(platformGenTimer);
 
   game.physics.arcade.collide(initialGroundGroup, player);
   game.physics.arcade.collide(groundGroup, player);
