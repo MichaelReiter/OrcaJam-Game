@@ -21,6 +21,7 @@ function create() {
 
   startPlatformGeneration();
   startGroundGeneration();
+  startScoreCounting();
   
   createInitalGround(windowH - platformHeight);
 
@@ -29,8 +30,6 @@ function create() {
 }
 
 function update() {
-
-  updateScore();
 
   changeNextPlatformTime(platformGenTimer);
 
