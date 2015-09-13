@@ -2,6 +2,7 @@ var DELAY_CONSTANT = ( 300000 / scrollSpeed );
 var groundGenDelay = DELAY_CONSTANT * 0.5;
 var platformGenDelay = DELAY_CONSTANT * 0.43;   //platforms are created closed horizontally as this value decreases
 var platformGenRandomnessMultipler = 2.5;
+var scoreUpdateRate = 10; // milliseconds
 
 function startPlatformGeneration() {
 
@@ -9,6 +10,12 @@ function startPlatformGeneration() {
   platformGenTimer = game.time.events.loop(0, createPlatform, this);
   platformGenTimer.delay = platformGenDelay;
 
+}
+
+function startScoreCounting() {
+	score = 0;
+	scoreLabel = game.add.text(windowW/2, windowH/10, score, { font: 'bold 20pt Comic Sans MS', fill: '#ffffff' }); 
+	ScoreTimer = game.time.events.loop( scoreUpdateRate, updateScore, this );
 }
 
 // function updatePlatformGeneration() {

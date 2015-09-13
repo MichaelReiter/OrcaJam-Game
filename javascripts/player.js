@@ -73,6 +73,8 @@ function toHell() {
   inHell = true;
   groundSprite = 'ground-hell';
 
+  ScoreTimer.delay = 100;
+
   //destroy all platforms
   platformsGroup.forEach(function(obj) {
     obj.kill();
