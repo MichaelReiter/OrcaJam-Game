@@ -2,6 +2,7 @@ var scrollSpeed = 350;
 var windowH = window.innerHeight;
 var windowW = window.innerWidth;
 var score = 0;
+var curZone = "ground";
 
 function preload() {
 
@@ -14,5 +15,5 @@ function preload() {
 }
 
 function placeHolder() {
-	
+
 }

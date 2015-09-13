@@ -64,6 +64,8 @@ function enableZoneChange() {
 
 function toHell() {
 
+  curZone = "hell";
+
   //destroy all platforms
   platformsGroup.forEach(function(obj) {
     obj.kill();
@@ -79,5 +81,5 @@ function toHell() {
 }
 
 function toHeaven() {
-
+  curZone = "heaven";
 }
