@@ -102,8 +102,8 @@ function toHeaven() {
   groundLevel = false;
   inHell = false;
 
-  platformWidth = 200;
-  updateSpeed(500);
+  platformWidth = 150;
+  updateSpeed(800);
 
   //change future created platform sprites
   platformSprite = 'ground-heaven';
@@ -115,18 +115,15 @@ function toHeaven() {
   biasTowardsBottomMultiplier = 4;
   biasTowardsTopMultiplier = 8;
 
-  platformGenDelayMultipler = 0.75;
+  platformGenDelayMultipler = 0.6;
   groundGenDelayMultipler = 0;
-  updateSpeed(scrollSpeed*2);
 
   //destroy all platforms
   platformsGroup.forEach(function(obj) {
     obj.kill();
   });
 
-  createHeightedPlatform( (windowH / 2.2), ( windowW + 200) );
-
-  platformWidth = 300;
+  createHeightedPlatform( (windowH / 1.8), ( windowW + 200) );
 
   createPits = false;
   
@@ -162,7 +159,7 @@ function toGround() {
   platformGenDelayMultipler = 0.43;
   groundGenDelayMultipler = 0.6;
   updateSpeed(400);
-  platformWidth = 250;
+  platformWidth = 200;
 
   ScoreTimer.delay = 10;
 
