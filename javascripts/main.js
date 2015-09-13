@@ -44,7 +44,4 @@ function update() {
 
   destroyOldGround();
   destroyOldPlatforms();
-
-
- 
 }

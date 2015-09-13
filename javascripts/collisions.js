@@ -1,4 +1,3 @@
-
 function placeHolder() {
 
 }
@@ -13,9 +12,23 @@ function playerVsPlatCollide() {
 }
 
 function playerVsGroundCollide() {
-	if ( inHell ) {
+	if (inHell) {
 		player.kill();
+    restartGame();
+    toGround();
 		return false;
 	}
-	else return true;
+	else {
+    return true;
+  }
+}
+
+function restartGame() {
+  score = 0;
+  inHeaven = false;
+  groundLevel = true;
+  inHell = false;
+  midJump = false
+
+  createPlayer();
 }

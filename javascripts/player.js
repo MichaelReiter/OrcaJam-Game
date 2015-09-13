@@ -66,6 +66,29 @@ function enableZoneChange() {
   }
 }
 
+function toHeaven() {
+
+  inHeaven = true;
+  groundLevel = false;
+  inHell = false;
+  game.destroy();
+  game = new Phaser.Game(windowW, windowH, Phaser.CANVAS, '', {
+    preload: preload,
+    create: create,
+    update: update
+  });
+
+}
+
+function toGround() {
+  background.loadTexture('background');
+  groundSprite = 'ground';
+
+  platformsGroup.forEach(function(platform) {
+    platform.loadTexture('ground');
+  });
+}
+
 function toHell() {
 
   inHeaven = false;
@@ -78,7 +101,7 @@ function toHell() {
     obj.kill();
   });
 
-  background.loadTexture('background-hell')
+  background.loadTexture('background-hell');
 
   platformCeilingOffset = ( windowH * 0.10 ); //this is the distance between the height of the game and the tallest platform
   platformFloorOffset = ( windowH * 0.33 ); //this is the distance between the bottom of the game and the lowest platform
@@ -90,8 +113,6 @@ function toHell() {
 
   createPits = false;
   groundGenDelay = 0;
-
-  groundSprite = 'ground-hell';
   
   createInitalGround( windowH - ( windowH / 3 ) );
   createInitalGround(  windowH - platformHeight );
@@ -105,13 +126,5 @@ function toHell() {
   platformsGroup.forEach(function(platform) {
     platform.loadTexture('ground-hell');
   });
-
-}
-
-function toHeaven() {
-
-  inHeaven = true;
-  groundLevel = false;
-  inHell = false;
 
 }
