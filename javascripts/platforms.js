@@ -1,7 +1,7 @@
 var platformHeight = 32;
 var prevPlatYPos = ( ( windowH / 16 ) * 3 );
 var minPlatformYDist = ( windowH / 16 );
-var maxPlatformYDist = ( ( windowH / 16 ) * 3 );
+var maxPlatformYDist = ( ( windowH / 18 ) * 3 );
 var platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
 var platformFloorOffset = ( windowH * 0.12 ); //this is the distance between the bottom of the game and the lowest platform
 var biasTowardsBottomMultiplier = 3;
@@ -68,6 +68,13 @@ function createPlatform() {
   ledge.width = platformWidth;
 
   prevPlatYPos = platYPos;
+}
+
+function createHeightedPlatform(height) {
+  var ledge = platformsGroup.create( game.world.width, height, groundSprite );
+  ledge.body.velocity.x = -scrollSpeed;
+  ledge.body.immovable = true;
+  ledge.width = platformWidth;
 }
 
 function destroyOldPlatforms() {
