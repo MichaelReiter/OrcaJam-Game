@@ -5,7 +5,7 @@ var maxPlatformYDist = ( ( windowH / 16 ) * 3 );
 var platformCeilingOffset = ( windowH * 0.05 ); //this is the distance between the height of the game and the tallest platform
 var platformFloorOffset = ( windowH * 0.16 ); //this is the distance between the bottom of the game and the lowest platform
 var biasTowardsBottomMultiplier = 3;
-var biasTowardsTopMultiplier = 10;
+var biasTowardsTopMultiplier = 15;
 
 function initializePlatformGroup() {
   platformsGroup = game.add.group();

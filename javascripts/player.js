@@ -82,10 +82,16 @@ function toHell() {
 
   platformCeilingOffset = ( windowH * 0.10 ); //this is the distance between the height of the game and the tallest platform
   platformFloorOffset = ( windowH * 0.33 ); //this is the distance between the bottom of the game and the lowest platform
-  biasTowardsBottomMultiplier = 5;
-  biasTowardsTopMultiplier = 6;
+  biasTowardsBottomMultiplier = 4;
+  biasTowardsTopMultiplier = 8;
 
+  createPits = false;
+  groundGenDelay = 0;
+
+  groundSprite = 'ground-hell';
+  
   createInitalGround( windowH - ( windowH / 3 ) );
+  createInitalGround(  windowH - platformHeight );
   
   platformsGroup = hellPlatforms = game.add.group();
   hellPlatforms.enableBody = true;
