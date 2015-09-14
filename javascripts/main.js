@@ -53,6 +53,7 @@ function update() {
     platformGenUpdateCount = 40;
   }
   updateCounter++;
+  console.log(updateCounter);
 
   if(!inTransition) {
 
