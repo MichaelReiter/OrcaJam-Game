@@ -99,6 +99,9 @@ function enableZoneChange() {
 }
 
 function toHeaven() {
+
+  prevPlatYPos = windowH;
+
   inTransition = true;
   inHeaven = true;
   groundLevel = false;
@@ -147,6 +150,9 @@ function toHeaven() {
 }
 
 function toGround() {
+
+  prevPlatYPos = windowH;
+
   createPits = true;
   inTransition = true;
   inHeaven = false;
@@ -191,6 +197,9 @@ function toGround() {
 }
 
 function toHell() {
+
+  prevPlatYPos = ( windowH / 2 ) + ( windowH / 5 );
+
   inTransition = true;
   inHeaven = false;
   groundLevel = false;
