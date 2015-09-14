@@ -16,7 +16,10 @@ function initializePlatformGroup() {
 
 function createPlatform() {
 
+  //up bias a < 1
+  // down bias a >
   do {
+
     platYPos = Math.random() * windowH;
     var platDiff = calcPlatformDistDiff(prevPlatYPos, platYPos);
   }
