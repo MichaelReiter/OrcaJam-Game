@@ -46,7 +46,7 @@ function update() {
   }
   if (inHell) {
     groundGenUpdateCount = 5;
-    platformGenUpdateCount = 50;
+    platformGenUpdateCount = 40;
   }
   if (inHeaven) {
     groundGenUpdateCount = 1;
@@ -54,10 +54,14 @@ function update() {
   }
   updateCounter++;
 
-  if( !inHeaven && updateCounter % groundGenUpdateCount == 0 ) {
-    createGround();
-  }
-  if( updateCounter % platformGenUpdateCount == 0 ) {
-    createPlatform();
+  if(!inTransition) {
+
+    if( !inHeaven && updateCounter % groundGenUpdateCount == 0 ) {
+      createGround();
+    }
+
+    if( updateCounter % platformGenUpdateCount == 0 ) {
+      createPlatform();
+    }
   }
 }
