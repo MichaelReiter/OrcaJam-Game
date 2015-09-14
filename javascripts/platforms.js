@@ -15,7 +15,6 @@ function initializePlatformGroup() {
 }
 
 function createPlatform() {
-
   do {
     platYPos = Math.random() * windowH;
     var platDiff = calcPlatformDistDiff(prevPlatYPos, platYPos);
@@ -32,7 +31,6 @@ function createPlatform() {
 }
 
 function calcPlatformDistDiff(prevPlatY, curPlatY) {
-
   var diff = Math.abs( prevPlatY - curPlatY );
 
   return diff;
