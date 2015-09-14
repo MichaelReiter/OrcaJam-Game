@@ -107,8 +107,8 @@ function toHeaven() {
   groundLevel = false;
   inHell = false;
 
-  platformWidth = 150;
-  updateSpeed(600);
+  platformWidth = 200;
+  updateSpeed(1000);
 
   //change future created platform sprites
   platformSprite = 'ground-heaven';
@@ -166,7 +166,7 @@ function toGround() {
 
   // platformGenDelayMultipler = 0.43;
   // groundGenDelayMultipler = 0.6;
-  updateSpeed(400);
+  updateSpeed(500);
   platformWidth = 200;
 
   ScoreTimer.delay = 10;

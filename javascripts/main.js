@@ -20,7 +20,7 @@ function create() {
 
   // startPlatformGeneration();
   // startGroundGeneration();
-  updateSpeed(400);
+  updateSpeed(500);
   createPlayer();
   createInitalGround((windowH - platformHeight), 'ground', 1);
   startScoreCounting();
@@ -50,7 +50,7 @@ function update() {
   }
   if (inHeaven) {
     groundGenUpdateCount = 1;
-    platformGenUpdateCount = 30;
+    platformGenUpdateCount = 40;
   }
   updateCounter++;
 
