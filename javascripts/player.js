@@ -108,7 +108,7 @@ function toHeaven() {
   inHell = false;
 
   platformWidth = 150;
-  updateSpeed(800);
+  updateSpeed(600);
 
   //change future created platform sprites
   platformSprite = 'ground-heaven';

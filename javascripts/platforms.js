@@ -19,7 +19,7 @@ function createPlatform() {
     platYPos = Math.random() * windowH;
     var platDiff = calcPlatformDistDiff(prevPlatYPos, platYPos);
   }
-  while( platDiff < minPlatformYDist || platDiff > maxPlatformYDist )
+  while( platDiff < minPlatformYDist || platDiff > maxPlatformYDist || platYPos > windowH - 50)
 
   var ledge = platformsGroup.create(game.world.width, platYPos, platformSprite);
 
