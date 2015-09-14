@@ -117,22 +117,20 @@ function toHeaven() {
   biasTowardsBottomMultiplier = 5;
   biasTowardsTopMultiplier = 1;
 
-  // platformGenDelayMultipler = 0.6;
-  // groundGenDelayMultipler = 0;
+  initialGroundGroup.forEach(function(ground) {
+    ground.kill();
+  });
 
   //destroy all platforms
   platformsGroup.forEach(function(obj) {
     obj.kill();
   });
 
-  // createHeightedPlatform(windowH - (windowH / 4.2), windowW, (windowW /2));
-
   createPits = false;
   
-  createInitalGround( windowH - ( windowH / 20 ) , 'ground-heaven', 1);
+  createInitalGround(windowH - 32 , 'ground-heaven', 1);
 
   player.y = windowH - (windowH / 10) ;
-  // player.body.velocity.y = -1000;
 
   background.loadTexture('background-heaven');
 
