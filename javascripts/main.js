@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var game = new Phaser.Game(windowW, windowH, Phaser.CANVAS, '', {
   preload: preload,
   create: create,
@@ -66,3 +67,6 @@ function update() {
     }
   }
 }
+=======
+console.log('This would be the main JS file.');
+>>>>>>> 33d44ba93d8c52903f64696f71b9e5b4dae70732
