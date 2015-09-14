@@ -15,15 +15,12 @@ function initializePlatformGroup() {
 }
 
 function createPlatform() {
-
-  //up bias a < 1
-  // down bias a >
   do {
 
     platYPos = Math.random() * windowH;
     var platDiff = calcPlatformDistDiff(prevPlatYPos, platYPos);
   }
-  while( platDiff < minPlatformYDist || platDiff > maxPlatformYDist )
+  while( platDiff < minPlatformYDist || platDiff > maxPlatformYDist || platYPos >  windowH - 94)
 
   var ledge = platformsGroup.create(game.world.width, platYPos, platformSprite);
 
@@ -35,7 +32,6 @@ function createPlatform() {
 }
 
 function calcPlatformDistDiff(prevPlatY, curPlatY) {
-
   var diff = Math.abs( prevPlatY - curPlatY );
 
   return diff;

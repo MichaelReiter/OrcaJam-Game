@@ -100,7 +100,7 @@ function enableZoneChange() {
 
 function toHeaven() {
 
-  prevPlatYPos = windowH;
+  prevPlatYPos = windowH -32;
 
   inTransition = true;
   inHeaven = true;
@@ -108,7 +108,7 @@ function toHeaven() {
   inHell = false;
 
   platformWidth = 150;
-  updateSpeed(800);
+  updateSpeed(600);
 
   //change future created platform sprites
   platformSprite = 'ground-heaven';
@@ -151,7 +151,7 @@ function toHeaven() {
 
 function toGround() {
 
-  prevPlatYPos = windowH;
+  prevPlatYPos = windowH - 32;
 
   createPits = true;
   inTransition = true;
