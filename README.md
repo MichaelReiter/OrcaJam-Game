@@ -1,15 +1,13 @@
 # Fathom
 
-A game built in 48 hours at the OrcaJam 6 gamejam in Victoria, BC.
+An endless runner game with a twist. Built in 48 hours at the OrcaJam 6 gamejam in Victoria, BC.
 
 Built with <3 by Michael Reiter and Noah Silvera.
 
-###[play here](https://michaelreiter.github.io/OrcaJam-Game/)###
+###[Play here](https://michaelreiter.github.io/OrcaJam-Game/)###
 
 ####Intructions####
-  * Space to jump
-  
-
-* #####**Note**#####
-
-  *  *Platform generation is not good enough to allow you to move through the three stages of the game, use the C key to cheat and   fly*
+  * Press the spacebar to jump
+  * Climb the platforms to reach the clouds and achieve a positive score
+  * Fall down to the depths below and achieve a negative score
+  * To allow you to easily move through the three stages of the game, press the C key to fly

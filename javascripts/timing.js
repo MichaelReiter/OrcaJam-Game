@@ -21,10 +21,3 @@ function startScoreCounting() {
 //   newDelay = ( ( Math.random() * platformGenRandomnessMultipler * platformGenDelay ) + platformGenDelay );
 //   platformGenTimer.delay = newDelay;
 // }
-
-// function enablePauseGame() {
-//   var pauseKey = game.input.keyboard.addKey(Phaser.Keyboard.ESC);
-//   if (pauseKey.isDown) {
-//     alert("Game paused.");
-//   }
-// }
